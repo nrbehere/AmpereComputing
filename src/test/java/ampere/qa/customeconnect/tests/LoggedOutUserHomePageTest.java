@@ -56,13 +56,15 @@ public class LoggedOutUserHomePageTest extends BaseTest{
    @Test (priority=7)
    public void TDLoginClick()
    {
-	   
+	   String title= LoHomepage.TDloginClick();
+	   Assert.assertEquals(title, Constants.LOGIN_PAGE_TITLE);
    }
    
    @Test (priority=8)
    public void SWFLoginClick()
    {
-	   
+	   String title= LoHomepage.SWloginClick();
+	   Assert.assertEquals(title, Constants.LOGIN_PAGE_TITLE);
    }
    @Test (priority=9)
    public void TDRegisterClick()
@@ -78,4 +80,13 @@ public class LoggedOutUserHomePageTest extends BaseTest{
    }
      
 
+   @Test (priority=11)
+   public void TechDocPage()
+   {
+	   String actTitle= LoHomepage.VisitingTechDocPage();
+	   Assert.assertEquals(actTitle, Constants.LOGIN_PAGE_TITLE);
+	   
+   }
+   
+   
 }

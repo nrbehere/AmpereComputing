@@ -7,10 +7,12 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
 import ampere.qa.customerconnect.factory.DriverFactory;
+import ampere.qa.customerconnect.pages.LoggedInUserHomePage;
 import ampere.qa.customerconnect.pages.LoggedOutUserHelpPage;
 import ampere.qa.customerconnect.pages.LoggedOutUserHomePage;
 import ampere.qa.customerconnect.pages.LoggedOutUserNavigation;
 import ampere.qa.customerconnect.pages.LoggedOutUserProductPage;
+import ampere.qa.customerconnect.pages.NavBarToHomePage;
 
 public class BaseTest {
 	
@@ -21,6 +23,8 @@ public class BaseTest {
 	LoggedOutUserNavigation LoNavigation;
   	LoggedOutUserProductPage LoProductPage;
 	LoggedOutUserHelpPage HP;
+	NavBarToHomePage NavBarHomePage;
+	LoggedInUserHomePage LoggedInHomePage;
 	
 	@BeforeTest
 	public void setup() throws InterruptedException
@@ -28,7 +32,11 @@ public class BaseTest {
 	   	df= new DriverFactory();
 	   	prop=df.init_prop();
 	   	driver= df.init_driver(prop);
-	   	LoHomepage=new LoggedOutUserHomePage(driver);
+	   	LoHomepage=new LoggedOutUserHomePage(driver,prop);
+	   	LoggedInHomePage=new LoggedInUserHomePage(driver,prop);
+	   	
+	   	NavBarHomePage= new NavBarToHomePage(driver);
+	   	LoNavigation= new LoggedOutUserNavigation(driver);
 	}
 	
 	

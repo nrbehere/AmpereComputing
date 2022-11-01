@@ -1,21 +1,29 @@
 package ampere.qa.customerconnect.pages;
 
+import java.util.Properties;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+
+import com.fasterxml.jackson.databind.annotation.JsonAppend.Prop;
 
 import ampere.qa.customerconnect.utils.Constants;
 import ampere.qa.customerconnect.utils.ElementUtil;
 
 public class LoggedOutUserHomePage {
 
+	
+	// Test Case - Sr. No 2.1, 2.2, 2.4, 2.5
 	// This is a action page for Homepage as reflected to logged out user
 
 	private WebDriver driver;
 	Boolean B;
+	private Properties prop;
 	private ElementUtil eleUtil;
 
-	public LoggedOutUserHomePage(WebDriver driver) {
+	public LoggedOutUserHomePage(WebDriver driver, Properties prop) {
 		this.driver = driver;
+		this.prop=prop;
 		eleUtil=new ElementUtil(driver);
 	}
 
@@ -87,6 +95,17 @@ public class LoggedOutUserHomePage {
 		
 	}
 
+	public String TDloginClick()
+	{   String title;
+		eleUtil.doClick(TDLoginLink);
+		title= eleUtil.doGetTitle(Constants.LOGIN_PAGE_TITLE, Constants.DEFAULT_TIMEOUT);
+		driver.get(prop.getProperty("url"));
+		eleUtil.waitForTitleContains(Constants.HOMEPAGE_TITLE,Constants.DEFAULT_TIMEOUT);
+		
+		return title;
+		
+	}
+	
   public String SWRegisterClick()
   {
 	  String title;
@@ -98,6 +117,18 @@ public class LoggedOutUserHomePage {
 		return title;
   }
 
+  
+  public String SWloginClick()
+	{   String title;
+		eleUtil.doClick(SWFLoginLink);
+		title= eleUtil.doGetTitle(Constants.LOGIN_PAGE_TITLE, Constants.DEFAULT_TIMEOUT);
+		driver.get(prop.getProperty("url"));
+		eleUtil.waitForTitleContains(Constants.HOMEPAGE_TITLE,Constants.DEFAULT_TIMEOUT);
+		
+		return title;
+		
+	}
+  
   public RegistrationPage gotoRegistrationPage()
   {
 	  eleUtil.doClick(TDRegisterLink);
@@ -105,6 +136,15 @@ public class LoggedOutUserHomePage {
 	  
   } 
 
-
+// Test Case - Sr No 2.5 - Verify that when logged out user accesses Technical Bulletins / Documents Page, user is navigated to the login page. 
+  
+  public String VisitingTechDocPage()
+  {
+	  driver.get(prop.getProperty("techdocurl"));
+	  String title= eleUtil.doGetTitle(Constants.LOGIN_PAGE_TITLE, Constants.DEFAULT_TIMEOUT);
+	  driver.get(prop.getProperty("url"));
+	  return title;
+	  
+  }
 
 }

@@ -10,13 +10,15 @@ import org.openqa.selenium.WebElement;
 import ampere.qa.customerconnect.utils.ElementUtil;
 
 public class LoggedOutUserNavigation {
+	
+	// Test Case - Sr. No. 1
 
 	private WebDriver driver;
 	private ElementUtil eleUtil;
 
 	// By locators for Support, Customer Homepage, product, Help
 	By SupportNavBar= By.xpath("(//div[@class='css-rjt1dr'])[3]");
-	By SupportNavBarLinks=By.cssSelector("div.css-1u1hse0 a");
+	By SupportNavBarLinks=By.xpath("//div[@class='css-1xasjpp']//a");
 	By SupportHomeLink=By.xpath("//a[@class='c']");
 	By ProductLink= By.xpath("((//div[@class='css-1u1hse0']) //a)[2]");
 	By HelpLink=By.xpath("((//div[@class='css-1u1hse0']) //a)[3]");
@@ -38,20 +40,28 @@ public class LoggedOutUserNavigation {
 
 	public void SupportLinkClick()
 	{
-		eleUtil.doClick(SupportNavBar);
+		eleUtil.doActionClick(SupportNavBar);
+		
 	}
 	
-	public List<String> SupportNavBarLinksArePresent() {
-		SupportLinkClick();
+	public List<String> SupportNavBarLinksArePresent() throws InterruptedException {
 	
+	   
+		eleUtil.doMoveToElement(SupportNavBar);
+		Thread.sleep(5000);
+		
+		
 		List<WebElement> ele= eleUtil.getElements(SupportNavBarLinks);
 		List<String> stringList= new ArrayList<String>();
 		
-		for (WebElement e: ele) {
-			String text=e.getText();
+		
+		System.out.println(ele.size());
+		
+		for (int i=0; i<ele.size();i++) {
+	      
+			String text=ele.get(i).getText();
 			stringList.add(text);
-			
-		}
+			}
 		 return stringList;
 
 	} 
