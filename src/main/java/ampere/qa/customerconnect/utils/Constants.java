@@ -14,6 +14,7 @@ public class Constants {
 	public static final String SOLUTIONS_HOMEPAGE_URL="https://cms-nextjs-qa.amperecomputing.com/";
 	public static final String SOLUTIONS_HOMEPAGE_TITLE = "Solutions Portal";
 	public static final String LOGIN_PAGE_TITLE="Ampere Computing - Sign In";
+
 	
 	
 	public static List<String> LoggedOutUserNavBarLinks()
