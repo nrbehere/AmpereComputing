@@ -6,34 +6,37 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 
 import ampere.qa.customerconnect.utils.ElementUtil;
 
 public class LoggedOutUserNavigation {
 	
-	// Test Case - Sr. No. 1
+	// Test Case 2.3 Verify that for a logged-out user only the following links are visible on the Support Navigation Bar - Support Home, Products, Help
+	// Test Case 2.4 Verify  that when logged out user can accesses Product Page and Help Page 
 
 	private WebDriver driver;
 	private ElementUtil eleUtil;
+	Actions action;
+	WebElement mainMenu;
 
 	// By locators for Support, Customer Homepage, product, Help
 	By SupportNavBar= By.xpath("(//div[@class='css-rjt1dr'])[3]");
 	By SupportNavBarLinks=By.xpath("//div[@class='css-1xasjpp']//a");
+	By SupportLink= By.xpath("(//div[@class='css-rjt1dr']) [3]");
 	By SupportHomeLink=By.xpath("//a[@class='c']");
 	By ProductLink= By.xpath("((//div[@class='css-1u1hse0']) //a)[2]");
-	By HelpLink=By.xpath("((//div[@class='css-1u1hse0']) //a)[3]");
+	By HelpLink=By.xpath("(//div[@class='css-jxbglg'])[5]//a[3]");
 	
 
 	public LoggedOutUserNavigation(WebDriver driver) {
 		this.driver = driver;
 		eleUtil = new ElementUtil(driver);
+		action= new Actions(driver);
+		
 	}
 
-	/*
-	 * Actions 1. Check whether Support is present in navigation bar 2. Check
-	 * whether 3 Links are shown for logged out user
-	 */
-
+	
 	public boolean SupportIsPresent() {
       return eleUtil.doIsDisplayed(SupportNavBar);
 	}
@@ -74,11 +77,12 @@ public class LoggedOutUserNavigation {
 
 	}
 
-    public LoggedOutUserHelpPage HelpLinkClick() {
+    public LoggedOutUserHelpPage HelpLinkClick() throws InterruptedException {
 		
-		SupportLinkClick();
-		eleUtil.doClick(HelpLink);
-		return new LoggedOutUserHelpPage(driver);
+    	 eleUtil.doMoveToElement(SupportLink);
+		 Thread.sleep(1000);
+		 eleUtil.doActionClick(HelpLink);
+		 return new LoggedOutUserHelpPage(driver);
 
 	}
 

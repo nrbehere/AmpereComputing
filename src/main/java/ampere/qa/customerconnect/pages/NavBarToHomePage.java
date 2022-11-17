@@ -12,8 +12,6 @@ import ampere.qa.customerconnect.utils.ElementUtil;
 
 public class NavBarToHomePage {
 	
-	// Test Case - Sr. No. 2.3
-	
 	private WebDriver driver;
 	private ElementUtil eleUtil;
 	public Properties prop;
@@ -33,7 +31,7 @@ public class NavBarToHomePage {
 		
 	}
   
-	// Visitng Solutions Homepage
+	// Test Case 1- Verify that the user can navigate to the Customer Connect Home page via Navigation Bar on Solutions Homepage / Ampere website
 	 public String visitSolutionsHomepage()
 	 {
 		 driver.get(Constants.SOLUTIONS_HOMEPAGE_URL);
@@ -42,8 +40,7 @@ public class NavBarToHomePage {
 	 }
 			
 	 
-	 //Navigating to Solutions Homepage via Nav Bar
-	 public String clickSupportHome() throws InterruptedException
+		 public String clickSupportHome() throws InterruptedException
 	 {
 		 eleUtil.doMoveToElement(SupportLink);
 		 Thread.sleep(1000);
@@ -53,10 +50,4 @@ public class NavBarToHomePage {
 		 return title;
 		  
 	 }
-	 
-	 
-	 
-	 
-
-
 }

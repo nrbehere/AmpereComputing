@@ -37,6 +37,7 @@ public class BaseTest {
 	   	
 	   	NavBarHomePage= new NavBarToHomePage(driver);
 	   	LoNavigation= new LoggedOutUserNavigation(driver);
+	   	
 	}
 	
 	

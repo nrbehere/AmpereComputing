@@ -14,9 +14,14 @@ public class Constants {
 	public static final String SOLUTIONS_HOMEPAGE_URL="https://cms-nextjs-qa.amperecomputing.com/";
 	public static final String SOLUTIONS_HOMEPAGE_TITLE = "Solutions Portal";
 	public static final String LOGIN_PAGE_TITLE="Ampere Computing - Sign In";
-
-	
-	
+	public static final String WELCOME_TEXT_HOMEPAGE="Welcome to Customer Connect";
+	public static final String HOMEPAGE_ACCESSMSG = "Access to this site is for our Customers";
+	public static final String HELP_PAGE_TITLE = "Help";
+	public static final String TECH_DOC_UPDATE_PAGE_TITLE = "Technical Documents Recently Updated";
+	public static final String SW_DES_FILES_UPDATE_PAGE_TITLE = "Software Recently Updated";
+	public static final String TECH_BULLETIN_UPDATE_PAGE_TITLE = "Technical Bulletins Recently Updated";
+	public static final String PROFILE_PAGE_TITLE = "Profile";
+		
 	public static List<String> LoggedOutUserNavBarLinks()
 	{
 		List<String> LONavList= new ArrayList<String>();
