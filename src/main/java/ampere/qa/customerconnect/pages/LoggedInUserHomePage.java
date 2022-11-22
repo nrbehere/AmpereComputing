@@ -126,6 +126,14 @@ public String TechDocViewAllClick()
 
 }
 
+public TechnicalDocumentUpdatesPage TechDocViewAllClickPageSetUp()
+{
+	eleUtil.doClick(techDocViewAll);
+	eleUtil.doGetTitle(Constants.TECH_DOC_UPDATE_PAGE_TITLE, Constants.DEFAULT_TIMEOUT);
+	return new TechnicalDocumentUpdatesPage(driver, prop);
+	
+}
+
 
 //Test Case 4.5 Verify that the "Software and Design Files Updates" card is present with  recently Updated Software & Design Files being displayed. Verify that there is a 'View All' Button that navigates User to "Software Recently Updated" page
 
@@ -145,6 +153,13 @@ public String SoftwareDesignFilesViewAllClick()
   
 }
 
+public SWUpdatesPage SWDesFilesViewAllClickPageSetUp()
+{
+	eleUtil.doClick(softDesViewAll);
+	eleUtil.doGetTitle(Constants.SW_DES_FILES_UPDATE_PAGE_TITLE, Constants.DEFAULT_TIMEOUT);
+	return new SWUpdatesPage(driver, prop);
+	
+}
 
 // Test Case 4.6  Verify that the "Technical Bulletin" card is present with recently updated Technical Bulletins being displayed. Verify that there is a 'View All' Button that navigates the User to "Technical Bulletins Recently Updated" page
 

@@ -21,6 +21,8 @@ public class Constants {
 	public static final String SW_DES_FILES_UPDATE_PAGE_TITLE = "Software Recently Updated";
 	public static final String TECH_BULLETIN_UPDATE_PAGE_TITLE = "Technical Bulletins Recently Updated";
 	public static final String PROFILE_PAGE_TITLE = "Profile";
+	public static final String SW_UPDATE_PAGE_TEXT_ON_HEROIMAGE = "Software and Design Files Updates";
+	public static final String TECH_DOC_UPDATES_PAGE_TEXTONIMAGE = "Technical Documents Updates";
 		
 	public static List<String> LoggedOutUserNavBarLinks()
 	{

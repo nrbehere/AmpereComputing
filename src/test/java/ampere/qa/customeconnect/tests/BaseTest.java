@@ -13,6 +13,8 @@ import ampere.qa.customerconnect.pages.LoggedOutUserHomePage;
 import ampere.qa.customerconnect.pages.LoggedOutUserNavigation;
 import ampere.qa.customerconnect.pages.LoggedOutUserProductPage;
 import ampere.qa.customerconnect.pages.NavBarToHomePage;
+import ampere.qa.customerconnect.pages.SWUpdatesPage;
+import ampere.qa.customerconnect.pages.TechnicalDocumentUpdatesPage;
 
 public class BaseTest {
 	
@@ -25,6 +27,8 @@ public class BaseTest {
 	LoggedOutUserHelpPage HP;
 	NavBarToHomePage NavBarHomePage;
 	LoggedInUserHomePage LoggedInHomePage;
+	SWUpdatesPage SWUpdatesPage;
+	TechnicalDocumentUpdatesPage TechDocUpdatesPage;
 	
 	@BeforeTest
 	public void setup() throws InterruptedException

@@ -13,12 +13,18 @@ import org.openqa.selenium.safari.SafariDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
+/**
+ * @author nehaj
+ *
+ */
 public class DriverFactory {
 
 	public static String highlight;
 	public WebDriver driver;
 	public Properties prop;
 	public OptionsManager optionsManager;
+	
+	public static ThreadLocal<WebDriver> tlDriver= new ThreadLocal<WebDriver>();
 	
 	public WebDriver init_driver(Properties prop) throws InterruptedException
 	{
@@ -32,33 +38,45 @@ public class DriverFactory {
 		switch (BrowserName) {
 		case "chrome":
 			WebDriverManager.chromedriver().setup();
-			driver= new ChromeDriver(optionsManager.getChromeOptions());
+			//driver= new ChromeDriver(optionsManager.getChromeOptions());
+			tlDriver.set(new ChromeDriver(optionsManager.getChromeOptions()));
 			break;
 		case "firefox":
 			WebDriverManager.firefoxdriver().setup();
-			driver= new FirefoxDriver(optionsManager.getFireFoxOptions());
+			//driver= new FirefoxDriver(optionsManager.getFireFoxOptions());
+			tlDriver.set(new FirefoxDriver(optionsManager.getFireFoxOptions()));
 			break;
 		case "edge":
 			WebDriverManager.edgedriver().setup();
-			driver= new EdgeDriver(optionsManager.getEdgeOptions());
+			//driver= new EdgeDriver(optionsManager.getEdgeOptions());
+			tlDriver.set(new EdgeDriver(optionsManager.getEdgeOptions()));
 			break;
 		case "safari":
 			WebDriverManager.safaridriver().setup();
-			driver=new SafariDriver();
-						
+			//driver=new SafariDriver();
+			tlDriver.set(new SafariDriver());
+			break;
 		default:
 			break;
 		}
 	
-		
-		//driver.manage().deleteAllCookies();
-		driver.get(prop.getProperty("url"));
+				//driver.manage().deleteAllCookies();
+		getDriver().get(prop.getProperty("url"));
 		//driver.wait(2000);
-		driver.manage().window().fullscreen();
+		getDriver().manage().window().fullscreen();
 		
 		
-		return driver;
+		return getDriver();
 	}
+	
+	
+	// getDriver(): It will return a thread local copy of the WebDriver
+	public static synchronized WebDriver getDriver()
+	{
+		
+		return tlDriver.get();
+	}
+	
 	
 	public Properties init_prop()
 	{
