@@ -30,8 +30,8 @@ public class TechnicalDocumentUpdatesPage {
 	
 	By HeroImage=By.xpath("//img[@alt='Hero Image']");
 	By TextOnImage=By.xpath("//p[@class='chakra-text css-bxak8j']");
-	By WMNote=By.xpath("//div[@class='css-12mhks'][1]");
-    By PPnote=By.xpath("(//div[@class='css-12mhks'])[2]");
+	By WMNote=By.xpath("//span[@class='css-12mhks'][1]");
+    By PPnote=By.xpath("(//span[@class='css-12mhks'])[2]");
     By TblColTitle=By.xpath("(//table[@class='chakra-table css-p50ahq']//th)[1]");
     By TblColType=By.xpath("(//table[@class='chakra-table css-p50ahq']//th)[2]");
     By TblColRev=By.xpath("(//table[@class='chakra-table css-p50ahq']//th)[3]");
@@ -49,7 +49,8 @@ public class TechnicalDocumentUpdatesPage {
     
     
     public String getPageTitle() 
-    {
+    { 
+    	driver.manage().window().maximize();
     	return eleUtil.doGetTitle(Constants.TECH_DOC_UPDATE_PAGE_TITLE, Constants.DEFAULT_TIMEOUT);
     }
     

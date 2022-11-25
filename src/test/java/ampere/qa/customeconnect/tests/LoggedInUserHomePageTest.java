@@ -10,6 +10,7 @@ import org.testng.annotations.Test;
 
 import ampere.qa.customerconnect.pages.LoggedInUserHomePage;
 import ampere.qa.customerconnect.utils.Constants;
+import io.qameta.allure.Description;
 
 public class LoggedInUserHomePageTest extends BaseTest {
 	
@@ -25,6 +26,8 @@ public class LoggedInUserHomePageTest extends BaseTest {
 		LoggedInHomePage.Login();
 	}
 	
+	
+	@Description("Logged In User Home Page Test - Welcome Text Verification")
 	@Test (priority=1)
 	public void WelcomeTextVerification()
 	{
@@ -38,6 +41,7 @@ public class LoggedInUserHomePageTest extends BaseTest {
 	   Assert.assertTrue(B);
 	}
 
+	@Description("Logged In User Home Page Test - Access Message Verification")
 	@Test (priority=2)
 	public void AccessMessageVerification()
 	{
@@ -45,6 +49,7 @@ public class LoggedInUserHomePageTest extends BaseTest {
 		Assert.assertTrue(ActText.contains(Constants.HOMEPAGE_ACCESSMSG));
 	}
 	
+	@Description("Logged In User Home Page Test - Technical Document Card Verification")
 	@Test (priority=3)
 	public void TechnicalDocumentCardVerification()
 	{
@@ -54,6 +59,7 @@ public class LoggedInUserHomePageTest extends BaseTest {
 		Assert.assertEquals(ActTitle, Constants.TECH_DOC_UPDATE_PAGE_TITLE);
 	}
 	
+	@Description("Logged In User Home Page Test - Software Design File Card Verification")
 	@Test (priority=4)
 	public void SoftwarePackageCardVerification()
 	{
@@ -64,6 +70,7 @@ public class LoggedInUserHomePageTest extends BaseTest {
 				
 	} 
 	
+	@Description("Logged In User Home Page Test - Technical Bulletin Card Verification")
 	@Test (priority=5)
 	public void TechnicalBulletinCardVerification()
 	{
@@ -73,6 +80,7 @@ public class LoggedInUserHomePageTest extends BaseTest {
 	  Assert.assertEquals(ActTitle, Constants.TECH_BULLETIN_UPDATE_PAGE_TITLE);
 	}
 
+	@Description("Logged In User Home Page Test - FAQ & Help Card Verification")
 	@Test (priority=6)
 	public void HelpCardVerification()
 	{
@@ -82,6 +90,7 @@ public class LoggedInUserHomePageTest extends BaseTest {
 		Assert.assertEquals(ActTitle, Constants.HELP_PAGE_TITLE);
 	}
 
+	@Description("Logged In User Home Page Test - Widget Verification")
 	@Test (priority=7)
 	public void ProfileLogoutWidget() throws InterruptedException
 	{
@@ -91,6 +100,7 @@ public class LoggedInUserHomePageTest extends BaseTest {
 		
 	}
 
+	
 	@Test (priority=8)
 	public void ProfileLinkVerification() throws InterruptedException
 	{

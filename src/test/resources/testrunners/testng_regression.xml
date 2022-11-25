@@ -1,4 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
 <suite name="Customer Connect Regression Test Suite " verbose="4" thread-count="4" parallel="tests">
+
+
+
+	<listeners>
+		<listener class-name="ampere.qa.customerconnect.listeners.ExtentReportListener" />
+		<listener class-name="ampere.qa.customerconnect.listeners.TestAllureListener" />
+	</listeners>
 
 <test name="Navigation to Customer Connect Home Page Test">
 <classes>
@@ -41,8 +51,4 @@
 </classes>
 </test>
 
-<!--  <test name="Open Cart Product Info Page Test"> <classes> <class name="com.qa.opencart.tests.ProductInfoPageTest" 
-		/> </classes> </test>  -->
-<!--  <test name="Open Cart Registration Page Test"> <classes> <class name="com.qa.opencart.tests.RegistrationPageTest" 
-		/> </classes> </test>  -->
 </suite>

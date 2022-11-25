@@ -9,6 +9,7 @@ import org.openqa.selenium.interactions.Actions;
 
 import ampere.qa.customerconnect.utils.Constants;
 import ampere.qa.customerconnect.utils.ElementUtil;
+import io.qameta.allure.Step;
 
 public class LoggedInUserHomePage {
 	
@@ -56,13 +57,9 @@ public class LoggedInUserHomePage {
  public void Login() throws InterruptedException 
  {
 	 eleUtil.doClick(loginLink);
-	 try {
-		Thread.sleep(2000);
-	} catch (InterruptedException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
-	
+	 Thread.sleep(2000);
+	 driver.manage().window().fullscreen();
+	 Thread.sleep(2000);
 	 String value=prop.getProperty("username");
 	 eleUtil.doSendKeys(UserNameField, value);
 	 Thread.sleep(1000);
@@ -77,6 +74,8 @@ public class LoggedInUserHomePage {
 
  // Test Case 4.2. Verify the Page Tile. Verify that "Welcome to Customer Connect" message is present. Verify that the hero image is present.
 
+ 
+ @Step ("Step to check whether Welcome text is present")
  public String WelcomeMesaagePresent()
  {
 	 String welcometext=eleUtil.getElement(welcomeText).getText();
@@ -156,6 +155,7 @@ public String SoftwareDesignFilesViewAllClick()
 public SWUpdatesPage SWDesFilesViewAllClickPageSetUp()
 {
 	eleUtil.doClick(softDesViewAll);
+	driver.manage().window().maximize();
 	eleUtil.doGetTitle(Constants.SW_DES_FILES_UPDATE_PAGE_TITLE, Constants.DEFAULT_TIMEOUT);
 	return new SWUpdatesPage(driver, prop);
 	

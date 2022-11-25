@@ -36,8 +36,8 @@ public class SWUpdatesPage {
 	
 	private By heroImage= By.xpath("//img[@alt='Hero Image']");
 	private By TextOnImage= By.xpath("//p[@class='chakra-text css-bxak8j']");
-	private By WMNote=By.xpath("(//div[@class='css-11vop16'])[1]");
-	private By PPNote=By.xpath("(//div[@class='css-11vop16'])[2]");
+	private By WMNote=By.xpath("//span[@class='css-11vop16'][1]");
+	private By PPNote=By.xpath("(//span[@class='css-11vop16'])[2]");
 	private By MoreAboutPasswordNote=By.xpath("//button[@class='chakra-button css-q9s9te']");
 	private By TableColumnTitle=By.xpath("(//table[@class='chakra-table css-p50ahq']//th)[1]");
 	private By TableColumnRev=By.xpath("(//table[@class='chakra-table css-p50ahq']//th)[2]");
@@ -46,7 +46,7 @@ public class SWUpdatesPage {
 	private By FirstFile=By.xpath("//tr[@class='css-6minc1']//td[@class='css-9pmepv'][1]");
 	private By LastElementofBreadCrum=By.xpath("(//li[@class='chakra-breadcrumb__list-item css-1av8uke'][3])//a");
 	
- 
+	 
 	public boolean HeroImageIsPresent()
 	{
 		return eleUtil.getElement(heroImage).isDisplayed();
