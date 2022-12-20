@@ -44,7 +44,8 @@ public class SWUpdatesPage {
 	private By TableColumnDate=By.xpath("(//table[@class='chakra-table css-p50ahq']//th)[3]");
 	private By FileListLinks=By.xpath("//tr[@class='css-6minc1']//td[@class='css-9pmepv']");
 	private By FirstFile=By.xpath("//tr[@class='css-6minc1']//td[@class='css-9pmepv'][1]");
-	private By LastElementofBreadCrum=By.xpath("(//li[@class='chakra-breadcrumb__list-item css-1av8uke'][3])//a");
+	private By FirstFileLink=By.xpath("//tr[@class='css-6minc1']//td[@class='css-9pmepv'][1]//a[1]");
+	private By LastElementofBreadCrum=By.xpath("//li[@class='chakra-breadcrumb__list-item css-1av8uke'][3]");
 	
 	 
 	public boolean HeroImageIsPresent()
@@ -123,21 +124,23 @@ public class SWUpdatesPage {
 
     
     public boolean FirstFileClick() throws InterruptedException
-    {
+    {   
+    	b=false;
+    	eleUtil.doActionMoveToElementClick(FirstFile);
     	String ExpectedText= eleUtil.getElement(FirstFile).getText();
-    	eleUtil.getElement(FirstFile).click();
-    	
-    	Thread.sleep(5000);
-    	//String ActualText=eleUtil.getElement(LastElementofBreadCrum).getText();
-		/*
-		 * if (ExpectedText==ActualText) { return true;
-		 * 
-		 * } else { return false;
-		 * 
-		 * }
-		 */    	
-    	
-    	return true;
-    }
+    	System.out.println("Expected File Name: " + ExpectedText);
+    	eleUtil.doClick(FirstFileLink);
+     	Thread.sleep(2000);
+     	eleUtil.windowMaximise();
+	    String ActualText=eleUtil.getElement(LastElementofBreadCrum).getText();
+		System.out.println("Actual File Name: " + ActualText);
+		if (ExpectedText.equals(ActualText)) {
+			b=true;
+		}
+		  eleUtil.PageBack();
+		  Thread.sleep(2000);
+		
+		  return b;
+       }
 
 }

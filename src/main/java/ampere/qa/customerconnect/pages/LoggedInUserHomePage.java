@@ -78,12 +78,14 @@ public class LoggedInUserHomePage {
  @Step ("Step to check whether Welcome text is present")
  public String WelcomeMesaagePresent()
  {
+	 eleUtil.windowMaximise();
 	 String welcometext=eleUtil.getElement(welcomeText).getText();
 	 return welcometext;
  }
 
  public String PageTitleCheck()
  {
+	
     String pagetitle=eleUtil.doGetTitle(Constants.HOMEPAGE_TITLE, 1000);
     return pagetitle;
  }
@@ -91,7 +93,7 @@ public class LoggedInUserHomePage {
  
  public Boolean HeroImageIsPresent()
  {
-	 
+	 eleUtil.windowMaximise(); 
 	 b=eleUtil.doIsDisplayed(heroImage);
      return b;
 	 
@@ -116,6 +118,7 @@ public Boolean TechDocCardPresent()
 
 public String TechDocViewAllClick()
 {
+  
   eleUtil.doClick(techDocViewAll);
   title= eleUtil.doGetTitle(Constants.TECH_DOC_UPDATE_PAGE_TITLE, Constants.DEFAULT_TIMEOUT);
   driver.navigate().back();
@@ -165,6 +168,8 @@ public SWUpdatesPage SWDesFilesViewAllClickPageSetUp()
 
 public Boolean TechBulletinCardPresent()
 {
+ eleUtil.windowMaximise();	
+ eleUtil.doMoveToElement(techBullCard);	
  b=eleUtil.getElement(techBullCard).isDisplayed(); 
  return b;
 }
@@ -179,11 +184,21 @@ public String TechBulletinViewAllClick()
   
 }
 
+public TechnicalBulletinUpdatesPage TechBulletinViewAllClickPageSetup()
+{
+  eleUtil.doClick(techBullViewAll);
+  eleUtil.windowMaximise();
+  eleUtil.doGetTitle(Constants.TECH_BULLETIN_UPDATE_PAGE_TITLE, Constants.DEFAULT_TIMEOUT);
+  return new TechnicalBulletinUpdatesPage(driver,prop);
+  
+}
 
 //Test Case 4.7 Verify that the "Read More" link is present for FAQ & Help page and clicking it User is navigated to Help page  
 
 public Boolean HelpFAQCardPresent()
 {
+ eleUtil.windowMaximise();	
+ eleUtil.doMoveToElement(faqHelpCard);	
  b=eleUtil.getElement(faqHelpCard).isDisplayed(); 
  return b;
 }
@@ -197,6 +212,16 @@ public String HelpReadMoreClick()
   return title;
   
 }
+
+public FAQandHelpPage HelpPageSetup()
+{
+	eleUtil.doClick(faqHelpReadMore);
+	eleUtil.windowMaximise();
+	title= eleUtil.doGetTitle(Constants.HELP_PAGE_TITLE, Constants.DEFAULT_TIMEOUT);
+  	return new FAQandHelpPage(driver,prop);
+
+}
+
 
 //Test Case 4.8 Verify a Logged In widget is present on the right side of home page with Profile & Logout Links
 

@@ -7,6 +7,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 
 import ampere.qa.customerconnect.factory.DriverFactory;
+import ampere.qa.customerconnect.pages.FAQandHelpPage;
 import ampere.qa.customerconnect.pages.LoggedInUserHomePage;
 import ampere.qa.customerconnect.pages.LoggedOutUserHelpPage;
 import ampere.qa.customerconnect.pages.LoggedOutUserHomePage;
@@ -14,6 +15,7 @@ import ampere.qa.customerconnect.pages.LoggedOutUserNavigation;
 import ampere.qa.customerconnect.pages.LoggedOutUserProductPage;
 import ampere.qa.customerconnect.pages.NavBarToHomePage;
 import ampere.qa.customerconnect.pages.SWUpdatesPage;
+import ampere.qa.customerconnect.pages.TechnicalBulletinUpdatesPage;
 import ampere.qa.customerconnect.pages.TechnicalDocumentUpdatesPage;
 
 public class BaseTest {
@@ -29,6 +31,8 @@ public class BaseTest {
 	LoggedInUserHomePage LoggedInHomePage;
 	SWUpdatesPage SWUpdatesPage;
 	TechnicalDocumentUpdatesPage TechDocUpdatesPage;
+	TechnicalBulletinUpdatesPage TechBulletinUpadtesPage;
+	FAQandHelpPage FAQandHelpPage;
 	
 	@BeforeTest
 	public void setup() throws InterruptedException

@@ -6,6 +6,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
 import ampere.qa.customerconnect.pages.LoggedInUserHomePage;
@@ -50,6 +51,7 @@ public class LoggedInUserHomePageTest extends BaseTest {
 	}
 	
 	@Description("Logged In User Home Page Test - Technical Document Card Verification")
+	@Ignore
 	@Test (priority=3)
 	public void TechnicalDocumentCardVerification()
 	{

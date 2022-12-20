@@ -45,6 +45,7 @@ public class NavBarToHomePage {
 		 eleUtil.doMoveToElement(SupportLink);
 		 Thread.sleep(1000);
 		 eleUtil.doActionClick(SupportHomeLink);
+		 Thread.sleep(2000);
 		 
 		 String title= eleUtil.doGetTitle(Constants.HOMEPAGE_TITLE, Constants.DEFAULT_TIMEOUT);
 		 return title;

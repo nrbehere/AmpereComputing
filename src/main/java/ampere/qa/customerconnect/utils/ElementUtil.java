@@ -30,6 +30,18 @@ public class ElementUtil {
 		jsUtil = new JavaScriptUtil(driver);
 	}
 
+	
+	public void windowMaximise()
+	{
+		driver.manage().window().maximize();
+	}
+	
+	
+	public void PageBack()
+	{
+		driver.navigate().back();
+	}
+	
 	public By getBy(String locatorType, String locatorValue) {
 		By locator = null;
 

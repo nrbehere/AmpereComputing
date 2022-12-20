@@ -1,4 +1,4 @@
-package ampere.qa.customerconnect.pages;
+	package ampere.qa.customerconnect.pages;
 
 import java.util.Properties;
 
@@ -45,15 +45,13 @@ public class LoggedOutUserHomePage {
 		return eleUtil.waitForURLToContain(Constants.HOMEPAGE_URL_FRACTION, Constants.DEFAULT_TIMEOUT);
 	}
 
-	// Method to verify that there is a message "You are not logged in" for
-	// Technical documents
+	// Method to verify that there is a message "You are not logged in" for Technical documents
 	public String TDLoginMsg() {
 
 		return driver.findElement(TechDocNotLoginMsg).getText();
 	}
 
-	// Method to verify that there is a message "You are not logged in" for Software
-	// & Design Files
+	// Method to verify that there is a message "You are not logged in" for Software & Design Files
 	public String SWFLoginMsg() {
 
 		return driver.findElement(SoftwareFilesLoginMsg).getText();

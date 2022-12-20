@@ -12,7 +12,7 @@ public class TechnicalDocumentsUpdatesPageTest extends BaseTest{
 	public void TechDocUpdatesPageSetup() throws InterruptedException
 	{
 		LoggedInHomePage.Login();
-		 TechDocUpdatesPage=LoggedInHomePage.TechDocViewAllClickPageSetUp();
+		TechDocUpdatesPage=LoggedInHomePage.TechDocViewAllClickPageSetUp();
 	}
 	
 	

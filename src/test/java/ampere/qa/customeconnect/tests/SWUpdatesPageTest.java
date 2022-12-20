@@ -85,10 +85,10 @@ public class SWUpdatesPageTest extends BaseTest{
 		Assert.assertTrue(B);
 	}
 	
-	@Ignore
 	@Test (priority=10)
 	public void FirstFileClickVerification() throws InterruptedException
 	{
 		B=SWUpdatesPage.FirstFileClick();
+		Assert.assertTrue(B);
 	}
 }

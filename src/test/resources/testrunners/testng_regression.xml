@@ -51,4 +51,15 @@
 </classes>
 </test>
 
+<test name="Technical Bulletins Recently Updated Page Test ">
+<classes>
+<class name="ampere.qa.customeconnect.tests.TechnicalBulletinUpdatesPageTest"/>
+</classes>
+</test>
+
+<test name="Help Page Test ">
+<classes>
+<class name="ampere.qa.customeconnect.tests.FAQandHelpPageTest"/>
+</classes>
+</test>
 </suite>
