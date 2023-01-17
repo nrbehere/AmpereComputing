@@ -25,6 +25,10 @@ public class Constants {
 	public static final String TECH_DOC_UPDATES_PAGE_TEXTONIMAGE = "Technical Documents Updates";
 	public static final String TECH_BULLETIN_UPDATE_PAGE_TEXT_ON_HEROIMAGE = "Technical Bulletin Updates";
 	public static final String HELP_PAGE_TEXT_ON_HERO_IMAGE = "Help";
+	public static final String HELP_SUCCESSFUL_FORM_SUBMISSION="Request submitted successfully!";
+	public static final String TECH_BULLETIN_TITLE = "Technical Bulletins";
+	public static final String TECH_BULLETIN_PAGE_TEXT_ON_HERO_IMAGE ="Technical Bulletins" ;
+	public static final String PROFILE_PAGE_TEXT_ON_HERO_IMAGE = "Profile";
 		
 	public static List<String> LoggedOutUserNavBarLinks()
 	{
@@ -35,4 +39,7 @@ public class Constants {
 		return LONavList;
 	}
 	
+
+
+
 }

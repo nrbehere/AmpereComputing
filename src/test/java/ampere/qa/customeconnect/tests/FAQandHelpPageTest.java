@@ -74,4 +74,15 @@ public class FAQandHelpPageTest extends BaseTest {
 		B=FAQandHelpPage.FAQExpandCollapse();
 		Assert.assertTrue(B);
 	}
+
+
+    @Test(priority=8)
+    public void HelpFormSubmission()
+    {
+        text=FAQandHelpPage.SuccessFulHelpFormSubmission();
+        Assert.assertEquals(text, Constants.HELP_SUCCESSFUL_FORM_SUBMISSION);
+    	
+    }
+
+
 }

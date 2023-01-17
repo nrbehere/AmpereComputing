@@ -20,7 +20,6 @@ public class LoggedInUserHomePageTest extends BaseTest {
 	String ActText;
 	
 	
-	
 	@BeforeClass
 	public void LoginSetUp() throws InterruptedException
 	{
@@ -41,39 +40,103 @@ public class LoggedInUserHomePageTest extends BaseTest {
 	   B=LoggedInHomePage.HeroImageIsPresent();
 	   Assert.assertTrue(B);
 	}
-
+	
+	
+	@Description("Logged In User Home Page Test- User First Name & Last Name is reflected post successful login")
+    @Test(priority=2)
+	public void UserNameVerification()
+	{
+		B=LoggedInHomePage.FirstNameLastNameVisible();
+		Assert.assertTrue(B);
+		
+	}
+	
 	@Description("Logged In User Home Page Test - Access Message Verification")
-	@Test (priority=2)
+	@Test (priority=3)
 	public void AccessMessageVerification()
 	{
 		ActText=LoggedInHomePage.AccessMessageIsPresent();
 		Assert.assertTrue(ActText.contains(Constants.HOMEPAGE_ACCESSMSG));
 	}
 	
-	@Description("Logged In User Home Page Test - Technical Document Card Verification")
-	@Ignore
-	@Test (priority=3)
-	public void TechnicalDocumentCardVerification()
+	
+
+	@Description("Logged In User Home Page Test - Product Card Verification")	
+	@Test (priority=4)
+	public void ProductCardVerification()
 	{
-		B=LoggedInHomePage.TechDocCardPresent();
+		B=LoggedInHomePage.ProductCardPresent();
+		Assert.assertTrue(B);
+	}
+	
+	@Description("Logged In User Home Page Test - Search Bar Verification")	
+	@Test (priority=5)
+	public void SearchBarPresent()
+	{
+		B=LoggedInHomePage.SearchBarIsPresent();
+		Assert.assertTrue(B);
+	}
+	
+	@Description("Logged In User Home Page Test - Search Functionality Verification")	
+	@Test (priority=6)
+	public void SearchFunctionalityVerification()
+	{
+		// code to be written
+	}
+	
+	
+	
+	@Description("Logged In User Home Page Test - Product Family Verification")	
+	@Test (priority=8)
+	public void ProductFamilyVerification()
+	{
+		B=LoggedInHomePage.ProductFamilPyresent();
+		Assert.assertTrue(B);
+	}
+	
+	@Description("Logged In User Home Page Test - Product Category Verification")	
+	@Test (priority=9)
+	public void ProductCategoryVerification()
+	{
+		B=LoggedInHomePage.ProductCategoryPresent();
+		Assert.assertTrue(B); 
+	}
+	
+	
+	@Description("Logged In User Home Page Test - Product Verification")	
+	@Test (priority=10)
+	public void ProductVerification() throws InterruptedException
+	{
+		LoggedInHomePage.ExpandProductCategory();
+		B=LoggedInHomePage.ProductsArePresent();
+		Assert.assertTrue(B);
+	}
+	
+	@Description("Logged In User Home Page Test - Product Click Verification")	
+	@Test (priority=11)
+	public void ProductClickVerification() throws InterruptedException
+	{
+		LoggedInHomePage.ExpandProductCategory();
+	    B=LoggedInHomePage.ProductClick();
+	    Assert.assertTrue(B);
+	
+	}
+	
+	@Description("Logged In User Home Page Test - Technical Document and Software Updates Card Verification")
+	@Test (priority=12)
+	public void TechnicalDocumentAndSoftwareUpdatesCardVerification() throws InterruptedException
+	{
+		B=LoggedInHomePage.TechDocCardIsPresent();
 		Assert.assertTrue(B);
 		ActTitle=LoggedInHomePage.TechDocViewAllClick();
 		Assert.assertEquals(ActTitle, Constants.TECH_DOC_UPDATE_PAGE_TITLE);
-	}
-	
-	@Description("Logged In User Home Page Test - Software Design File Card Verification")
-	@Test (priority=4)
-	public void SoftwarePackageCardVerification()
-	{
-		B=LoggedInHomePage.SoftwareDesignFilesCardPresent();
-		Assert.assertTrue(B);
 		ActTitle=LoggedInHomePage.SoftwareDesignFilesViewAllClick();
 		Assert.assertEquals(ActTitle, Constants.SW_DES_FILES_UPDATE_PAGE_TITLE);
-				
-	} 
+	}
+	
 	
 	@Description("Logged In User Home Page Test - Technical Bulletin Card Verification")
-	@Test (priority=5)
+	@Test (priority=13)
 	public void TechnicalBulletinCardVerification()
 	{
 	  B=LoggedInHomePage.TechBulletinCardPresent();
@@ -83,17 +146,20 @@ public class LoggedInUserHomePageTest extends BaseTest {
 	}
 
 	@Description("Logged In User Home Page Test - FAQ & Help Card Verification")
-	@Test (priority=6)
-	public void HelpCardVerification()
+	@Test (priority=14)
+	public void HelpCardVerification() throws InterruptedException
 	{
 		B=LoggedInHomePage.HelpFAQCardPresent();
 		Assert.assertTrue(B);
+		B=LoggedInHomePage.RMALinkPresent();
+		Assert.assertTrue(B);
 		ActTitle=LoggedInHomePage.HelpReadMoreClick();
 		Assert.assertEquals(ActTitle, Constants.HELP_PAGE_TITLE);
+		
 	}
 
 	@Description("Logged In User Home Page Test - Widget Verification")
-	@Test (priority=7)
+	@Test (priority=15)
 	public void ProfileLogoutWidget() throws InterruptedException
 	{
 		B=LoggedInHomePage.LoggedInWidgetIsPresent();
@@ -103,14 +169,14 @@ public class LoggedInUserHomePageTest extends BaseTest {
 	}
 
 	
-	@Test (priority=8)
+	@Test (priority=16)
 	public void ProfileLinkVerification() throws InterruptedException
 	{
 		ActTitle=LoggedInHomePage.ProfileLinkClick();
 	    Assert.assertEquals(ActTitle, Constants.PROFILE_PAGE_TITLE);
 	}
 	
-	@Test (priority=9)
+	@Test (priority=17)
 	public void LogoutLinkVerification() throws InterruptedException
 	{
 		B=LoggedInHomePage.LogoutLinkClick();

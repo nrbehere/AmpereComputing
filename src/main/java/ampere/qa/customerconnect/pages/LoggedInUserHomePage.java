@@ -1,6 +1,8 @@
 package ampere.qa.customerconnect.pages;
 
+import java.util.List;
 import java.util.Properties;
+import java.util.Random;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -16,10 +18,12 @@ public class LoggedInUserHomePage {
 	private WebDriver driver;
 	private Properties prop;
 	private ElementUtil eleUtil;
-	Boolean b;
-	String title;
-	Actions action;
-	WebElement mainMenu;
+	private List<WebElement> ele;
+	private Boolean b;
+	private String title;
+	private int i;
+	private Actions action;
+	private WebElement mainMenu;
 	
 	public LoggedInUserHomePage (WebDriver driver, Properties prop)
 	{
@@ -30,17 +34,23 @@ public class LoggedInUserHomePage {
 	}
 
     private By loginLink=By.xpath("(//span[@class='css-722v25'])[1]");	 
-	private By heroImage= By.xpath("//img[@alt='Hero Image']");
-	private By welcomeText= By.xpath("//p[@class='chakra-text css-bxak8j']");
+	private By heroImage= By.xpath("(//img)[3]");
+	private By welcomeText= By.xpath("(//p[@class='chakra-text css-bxak8j'])[1]");
 	private By accessMsg= By.xpath("//div[@class='css-1a0i1ol']");
-	private By techDocCard= By.xpath("//div[@class='css-1kcc3za'][1]");
-	private By techDocViewAll=By.xpath("//button[@class='chakra-button css-dsbiu9'][1]");
-	private By softDesCard=By.xpath("//div[@class='css-1kcc3za'][2]");
-	private By softDesViewAll=By.xpath("(//button[@class='chakra-button css-dsbiu9'])[2]");
-	private By techBullCard=By.xpath("//div[@class='css-1kcc3za'][3]");
-	private By techBullViewAll=By.xpath("(//button[@class='chakra-button css-dsbiu9'])[3]");
-	private By faqHelpCard= By.xpath("//div[@class='css-11094vn']");
-	private By faqHelpReadMore=By.xpath("//div[@class='css-whl708']");
+	private By ProductCard=By.xpath("(//div[@class='css-klktgf'])[1]");
+	private By SearchBar=By.xpath("//input[@class='chakra-input css-ix76ss']");
+	private By ProductFamily=By.xpath("//div[@class='css-1urlnhj']");
+	private By ProductCategory=By.xpath("//div[@class='chakra-accordion__item css-ka586j']");
+	private By Products=By.xpath("//div[@class='css-1lbcusb']//a");
+	private By techDocCard= By.xpath("//div[@class='css-1kcc3za'][2]");
+	private By techDocViewAll=By.xpath("(//div[@class='css-18qkft1']//a)[1]");
+	private By softDesCard=By.xpath("(//div[@class='css-18qkft1']//a)[2]");
+	private By softDesViewAll=By.xpath("(//a[@class='chakra-link chakra-button css-1hkhk0c'])[2]");
+	private By techBullCard=By.xpath("(//div[@class='css-1kcc3za'])[3]");
+	private By techBullViewAll=By.xpath("//div[@class='css-ldihrc']");
+	private By faqHelpCard= By.xpath("(//div[@class='css-1kcc3za'])[4]");
+	private By faqHelpReadMore=By.xpath("//div[@class='css-1kjc77f']//a[1]");
+	private By faqHelpRMALink=By.xpath("//div[@class='css-1kjc77f']//a[2]");
 	private By loggedInWidget=By.xpath("//div[@class='css-t1b7l']");
 	private By loggedInWidget2=By.xpath("//div[@class='css-1tbo71r']");
 	private By UserNameField=By.xpath("//input[@type='text']");
@@ -52,7 +62,12 @@ public class LoggedInUserHomePage {
 	private By documentLinks=By.xpath("//div[@class='css-1mxhkmy']");
 	private By docDates=By.xpath("//div[@class='css-x5oct']");
 	private By TDLoginLink = By.xpath("(//span[@class='css-722v25'])[1]");
-	
+	private By FnLnLocator=By.xpath("//span[@class='css-puvmh4']");
+	private By SupportNavBar=By.xpath("(//div[@class='css-rjt1dr'])[3]");
+	private By NavBarTechBulletinLink=By.xpath("(//a[@class='chakra-link css-6k6rnv'])[9]");
+	private By NavBarProductLink= By.xpath("(//a[@class='chakra-link css-6k6rnv'])[7]");
+	private By LastElementOfBreadCrumb=By.xpath("(//li[@class='chakra-breadcrumb__list-item css-1av8uke'])[4]");
+	private By AcceptAllCookiesButton=By.xpath("//button[@class='chakra-button css-n9n0wy']");
 	
  public void Login() throws InterruptedException 
  {
@@ -108,22 +123,165 @@ public class LoggedInUserHomePage {
  }
 
  
-//Test Case 4.4 Verify the "Technical Document Updates" card is present with Recently Updated Technical Documents being displayed. Verify that there is a View All Button which navigates User to "Technical Documents Recently Updated" page
-
-public Boolean TechDocCardPresent()
+	/*
+	 * Test Case 4.4 Verify that Products card is present. Verify that Product Family, Product
+	 * Category and product is present in the Product Card. Verify that when user
+	 * clicks a particular product, user is navigated to that product's page.
+	 */
+ 
+ public Boolean ProductCardPresent()
 {
- b=eleUtil.getElement(techDocCard).isDisplayed(); 
- return b;
+ eleUtil.windowMaximise();
+ return eleUtil.getElement(ProductCard).isDisplayed();
 }
+ 
+ 
+ public Boolean ProductFamilPyresent()
+ {
+	 eleUtil.windowMaximise();
+	 ele= eleUtil.getElements(ProductFamily);
+	 i=ele.size();
+	 System.out.println("Number of Product Faimly in Product Card:  "+i);
+	 if (i>0) {
+		return true;
+	} else {
+        return false;
+	}
+	
+	 
+ }
+ 
+ 
+ public Boolean ProductCategoryPresent()
+ {
+	 eleUtil.windowMaximise();
+	 eleUtil.doMoveToElement(ProductCategory);
+	 ele=eleUtil.getElements(ProductCategory);
+	 i=ele.size();
+	 System.out.println("Number of Product Category in Product Card:  "+i);
+	 if (i>0) {
+		return true;
+	} else {
+        return false;
+	}
+ }
+ 
+ 
+ public void ExpandProductCategory() throws InterruptedException
+ {
+	 eleUtil.windowMaximise();
+	 //eleUtil.doMoveToElement(ProductCategory);
+	 ele=eleUtil.getElements(ProductCategory);
+	 for (int i = 0; i <ele.size(); i++) {
+		 ele.get(i).click();
+		 Thread.sleep(1000);
+	    		
+	}
+ }
 
+ public boolean ProductsArePresent() throws InterruptedException
+ {
+	eleUtil.windowMaximise();
+	Thread.sleep(5000);
+	ele=eleUtil.getElements(Products); 
+	i=ele.size();
+	 System.out.println("Number of Product in Product Card:  "+i);
+	 if (i>0) {
+		return true;
+	} else {
+        return false;
+	}
+	 	 
+ }
+ 
+ public Boolean ProductClick() throws InterruptedException
+ {
+	 eleUtil.windowMaximise();
+	 
+	 ele=eleUtil.getElements(Products);
+	 i=ele.size();
+	 
+	 Random r=new Random();
+	 
+	 int randomFile=r.nextInt(i);
+	 
+	 System.out.println("Random File Number-" +randomFile);
+	 
+	 String ExpectedFileName= ele.get(randomFile).getText();
+	 System.out.println("Product clicked: "+ ExpectedFileName);
+	 
+	 randomFile=randomFile+1;
+	 By RandomProduct= By.xpath("(//div[@class='css-1lbcusb']//a)["+randomFile+"]");
+	 eleUtil.doMoveToElement(RandomProduct);
+	 Thread.sleep(2000);
+	 eleUtil.getElement(RandomProduct).click();
+	 Thread.sleep(2000);
+	 eleUtil.windowMaximise();
+	 String ActualFileName=eleUtil.getElement(LastElementOfBreadCrumb).getText();
+	 System.out.println("Product Page opened: "+ ActualFileName);
+	 Thread.sleep(3000);
+	 if (ExpectedFileName.equalsIgnoreCase(ActualFileName)) {
+		driver.navigate().back(); 
+		Thread.sleep(3000);
+		return true;
+	} else {
+		driver.navigate().back();
+		Thread.sleep(3000);
+        return false;
+	}
+	 
+ }
+ 
+ public Boolean SearchBarIsPresent()
+ {
+	
+	 eleUtil.windowMaximise();
+	 return eleUtil.getElement(SearchBar).isDisplayed();
+ }
+ 
+ 
+ 
+ public ProductsPage ProductPageSetup() throws InterruptedException
+ {
+	 
+	 eleUtil.doActionMoveToElementClick(SupportNavBar);
+	 eleUtil.doActionMoveToElementClick(NavBarProductLink);
+	
+	 Thread.sleep(3000);
+	 eleUtil.windowMaximise();
+	 return new ProductsPage(driver,prop);
+ 
+ }
+ 
+ 
+/*
+ * Test Case 4.5 Verify that search bar is present in Products card. Verify that
+ * when user searches for a particular product, user is navigated to the Search
+ * page with appropriate search results being displayed
+ */
+ 
+ 
+ public Boolean SearchBarPresent()
+ {
+	 return eleUtil.getElement(SearchBar).isDisplayed();
+ }
+
+ 
+ public Boolean TechDocCardIsPresent()
+ {   
+	 eleUtil.doMoveToElement(techDocCard);
+	 return eleUtil.getElement(techDocCard).isDisplayed();
+ }
+ 
 public String TechDocViewAllClick()
 {
-  
-  eleUtil.doClick(techDocViewAll);
+  eleUtil.windowMaximise();	
+  eleUtil.doMoveToElement(techDocCard);
+  eleUtil.getElement(techDocViewAll).click();
   title= eleUtil.doGetTitle(Constants.TECH_DOC_UPDATE_PAGE_TITLE, Constants.DEFAULT_TIMEOUT);
   driver.navigate().back();
   eleUtil.waitForTitleContains(Constants.HOMEPAGE_TITLE,Constants.DEFAULT_TIMEOUT);
-	return title;
+  return title;
   
 
 }
@@ -139,20 +297,31 @@ public TechnicalDocumentUpdatesPage TechDocViewAllClickPageSetUp()
 
 //Test Case 4.5 Verify that the "Software and Design Files Updates" card is present with  recently Updated Software & Design Files being displayed. Verify that there is a 'View All' Button that navigates User to "Software Recently Updated" page
 
-public Boolean SoftwareDesignFilesCardPresent()
-{
- b=eleUtil.getElement(softDesCard).isDisplayed(); 
- return b;
-}
 
-public String SoftwareDesignFilesViewAllClick()
-{
-  eleUtil.doClick(softDesViewAll);
+
+public String SoftwareDesignFilesViewAllClick() throws InterruptedException
+{ 
+  eleUtil.windowMaximise();	
+  eleUtil.doMoveToElement(techDocCard);
+  Thread.sleep(5000);
+  CookiesAcceptAllClick();
+  eleUtil.doActionMoveToElementClick(softDesViewAll);
   title= eleUtil.doGetTitle(Constants.SW_DES_FILES_UPDATE_PAGE_TITLE, Constants.DEFAULT_TIMEOUT);
   driver.navigate().back();
   eleUtil.waitForTitleContains(Constants.HOMEPAGE_TITLE,Constants.DEFAULT_TIMEOUT);
-	return title;
+  return title;
   
+}
+
+public void CookiesAcceptAllClick()
+{
+   b=eleUtil.getElement(AcceptAllCookiesButton).isDisplayed();	
+   
+   if (b) {
+	   eleUtil.getElement(AcceptAllCookiesButton).click();
+	
+   }
+   
 }
 
 public SWUpdatesPage SWDesFilesViewAllClickPageSetUp()
@@ -203,12 +372,22 @@ public Boolean HelpFAQCardPresent()
  return b;
 }
 
-public String HelpReadMoreClick()
+public Boolean RMALinkPresent()
+{
+	
+	eleUtil.windowMaximise();
+	eleUtil.doMoveToElement(faqHelpCard);
+	 return eleUtil.getElement(faqHelpRMALink).isDisplayed();
+	
+}
+
+public String HelpReadMoreClick() throws InterruptedException
 {
   eleUtil.doClick(faqHelpReadMore);
   title= eleUtil.doGetTitle(Constants.HELP_PAGE_TITLE, Constants.DEFAULT_TIMEOUT);
   driver.navigate().back();
   eleUtil.waitForTitleContains(Constants.HOMEPAGE_TITLE,Constants.DEFAULT_TIMEOUT);
+  Thread.sleep(3000);
   return title;
   
 }
@@ -227,7 +406,8 @@ public FAQandHelpPage HelpPageSetup()
 
 public Boolean LoggedInWidgetIsPresent() throws InterruptedException
 {
-	eleUtil.getElement(loggedInWidget).isDisplayed();
+	eleUtil.windowMaximise();
+	b= eleUtil.getElement(loggedInWidget).isDisplayed();
 	Thread.sleep(2000);
 	return b;
 
@@ -235,6 +415,8 @@ public Boolean LoggedInWidgetIsPresent() throws InterruptedException
 
 public String ProfileLinkClick() throws InterruptedException
 {   
+   
+	eleUtil.windowMaximise();
 	mainMenu=eleUtil.getElement(loggedInWidget);
 	action.moveToElement(mainMenu).build().perform();
 	Thread.sleep(2000);
@@ -249,11 +431,35 @@ public String ProfileLinkClick() throws InterruptedException
 	 
 }
 
-public Boolean LogoutLinkClick() throws InterruptedException
-{  
-	mainMenu=eleUtil.getElement(loggedInWidget2);
+public ProfilePage ProfilePageSetup() throws InterruptedException
+{
+	eleUtil.windowMaximise();
+	Thread.sleep(3000);
+	eleUtil.doMoveToElement(ProductCard); // just to move the cursor
 	Thread.sleep(2000);
+	
+	mainMenu=eleUtil.getElement(loggedInWidget);
 	action.moveToElement(mainMenu).build().perform();
+	Thread.sleep(2000);
+	
+	
+	eleUtil.getElement(WidgetProfile).click();
+	title= eleUtil.doGetTitle(Constants.PROFILE_PAGE_TITLE,Constants.DEFAULT_TIMEOUT);
+	return new ProfilePage(driver,prop);
+	
+	
+
+}
+
+
+public Boolean LogoutLinkClick() throws InterruptedException
+{
+	eleUtil.windowMaximise();
+	eleUtil.getElement(welcomeText).isDisplayed();
+	eleUtil.doMoveToElement(ProductCard);
+	
+	
+	eleUtil.doMoveToElement(loggedInWidget);
 	Thread.sleep(2000);
 	eleUtil.getElement(WidgetLogOut).click();
 	eleUtil.waitForTitleContains(Constants.HOMEPAGE_TITLE,Constants.DEFAULT_TIMEOUT); 
@@ -262,6 +468,38 @@ public Boolean LogoutLinkClick() throws InterruptedException
     return b;
 	
 }
+
+
+
+public boolean FirstNameLastNameVisible()
+{
+	
+ WebElement ele= eleUtil.getElement(FnLnLocator);
+ String info=ele.getText();
+ if (info.startsWith("Hi")) {
+	 b=true;
+	 
+} else {
+       b=false;
+}
+ return b;
+}
+
+
+
+public TechnicalBulletinPage TechnicalBulletinPageSetup() throws InterruptedException {
+	
+	eleUtil.doActionMoveToElementClick(SupportNavBar);
+	eleUtil.doActionMoveToElementClick(NavBarTechBulletinLink);
+	Thread.sleep(5000);
+	
+	eleUtil.windowMaximise();
+	title= eleUtil.doGetTitle(Constants.TECH_BULLETIN_TITLE, Constants.DEFAULT_TIMEOUT);
+  	return new TechnicalBulletinPage(driver,prop);
+	
+}
+
+
 
 
 }

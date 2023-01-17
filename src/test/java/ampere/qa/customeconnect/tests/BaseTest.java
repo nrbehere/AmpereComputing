@@ -14,7 +14,9 @@ import ampere.qa.customerconnect.pages.LoggedOutUserHomePage;
 import ampere.qa.customerconnect.pages.LoggedOutUserNavigation;
 import ampere.qa.customerconnect.pages.LoggedOutUserProductPage;
 import ampere.qa.customerconnect.pages.NavBarToHomePage;
+import ampere.qa.customerconnect.pages.ProfilePage;
 import ampere.qa.customerconnect.pages.SWUpdatesPage;
+import ampere.qa.customerconnect.pages.TechnicalBulletinPage;
 import ampere.qa.customerconnect.pages.TechnicalBulletinUpdatesPage;
 import ampere.qa.customerconnect.pages.TechnicalDocumentUpdatesPage;
 
@@ -33,6 +35,8 @@ public class BaseTest {
 	TechnicalDocumentUpdatesPage TechDocUpdatesPage;
 	TechnicalBulletinUpdatesPage TechBulletinUpadtesPage;
 	FAQandHelpPage FAQandHelpPage;
+	TechnicalBulletinPage TechnicalBulletinPage;
+	ProfilePage ProfilePage;
 	
 	@BeforeTest
 	public void setup() throws InterruptedException
