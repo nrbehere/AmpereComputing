@@ -15,10 +15,11 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
+import ampere.qa.customerconnect.utils.Constants;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 /**
- * @author nehaj
+ * @author Neha Behere
  *
  */
 public class DriverFactory {
@@ -30,7 +31,7 @@ public class DriverFactory {
 	
 	public static ThreadLocal<WebDriver> tlDriver= new ThreadLocal<WebDriver>();
 	
-	public WebDriver init_driver(Properties prop) throws InterruptedException
+	public WebDriver init_driver(Properties prop, File folder) throws InterruptedException
 	{
 	  
 		String BrowserName=prop.getProperty("browser");
@@ -41,9 +42,12 @@ public class DriverFactory {
 		
 		switch (BrowserName) {
 		case "chrome":
-			WebDriverManager.chromedriver().setup();
+			WebDriverManager.chromedriver().driverVersion(Constants.CHROME_VERSION).setup();
+			//Above code is browser specific
+			
+			//WebDriverManager.chromedriver().setup();
 			//driver= new ChromeDriver(optionsManager.getChromeOptions());
-			tlDriver.set(new ChromeDriver(optionsManager.getChromeOptions()));
+			tlDriver.set(new ChromeDriver(optionsManager.getChromeOptions(folder)));
 			break;
 		case "firefox":
 			WebDriverManager.firefoxdriver().setup();

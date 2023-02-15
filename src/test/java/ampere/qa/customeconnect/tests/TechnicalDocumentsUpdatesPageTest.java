@@ -5,6 +5,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import ampere.qa.customerconnect.utils.Constants;
+import io.qameta.allure.Description;
 
 public class TechnicalDocumentsUpdatesPageTest extends BaseTest{
 	
@@ -20,6 +21,7 @@ public class TechnicalDocumentsUpdatesPageTest extends BaseTest{
 	Boolean B;
 	String text;
 	
+	@Description("Test Case - Verification of Page title for Technical Documents Updates Page")
 	@Test (priority=1)
 	public void PageTitleVerification()
 	{
@@ -28,6 +30,7 @@ public class TechnicalDocumentsUpdatesPageTest extends BaseTest{
 		Assert.assertEquals(ActTitle,Constants.TECH_DOC_UPDATE_PAGE_TITLE );
 	}
 	
+	@Description("Test Case - Verification of Hero Image for Technical Documents Updates Page")
 	@Test (priority=2)
     public void HeroImageVerfication()
 	{
@@ -35,6 +38,7 @@ public class TechnicalDocumentsUpdatesPageTest extends BaseTest{
 		Assert.assertTrue(B);
 	}
 
+	@Description("Test Case - Verification of Text on Hero Image for Technical Documents Updates Page")
 	@Test (priority=3)
     public void TextOnImageVerfication()
 	{
@@ -42,6 +46,7 @@ public class TechnicalDocumentsUpdatesPageTest extends BaseTest{
 		Assert.assertEquals(text, Constants.TECH_DOC_UPDATES_PAGE_TEXTONIMAGE);
 	}
 
+	@Description("Test Case - Verification That Watermark Note is present for Technical Documents Updates Page")
 	@Test (priority=4)
     public void WaterMarkNoteVerfication()
 	{
@@ -49,6 +54,7 @@ public class TechnicalDocumentsUpdatesPageTest extends BaseTest{
 		Assert.assertTrue(B);
 	}
 
+	@Description("Test Case - Verification That Password Protection note is present for Technical Documents Updates Page")
 	@Test (priority=5)
     public void PasswordProtectionNoteVerfication()
 	{
@@ -56,6 +62,7 @@ public class TechnicalDocumentsUpdatesPageTest extends BaseTest{
 		Assert.assertTrue(B);
 	}
 	
+	@Description("Test Case - Verification of Title Column in the Files Table for Technical Documents Updates Page")
 	@Test (priority=6)
     public void TableColumnTitleVerfication()
 	{
@@ -63,6 +70,7 @@ public class TechnicalDocumentsUpdatesPageTest extends BaseTest{
 		Assert.assertTrue(B);
 	}	
 
+	@Description("Test Case - Verification of Type Column in the Files Table for Technical Documents Updates Page")
 	@Test (priority=7)
     public void TableColumnTypeVerfication()
 	{
@@ -70,6 +78,7 @@ public class TechnicalDocumentsUpdatesPageTest extends BaseTest{
 		Assert.assertTrue(B);
 	}	
 	
+	@Description("Test Case - Verification of Revision Column in the Files Table for Technical Documents Updates Page")
 	@Test (priority=8)
     public void TableColumnRevVerfication()
 	{
@@ -77,7 +86,7 @@ public class TechnicalDocumentsUpdatesPageTest extends BaseTest{
 		Assert.assertTrue(B);
 	}
 	
-	
+	@Description("Test Case - Verification of Dates Column in the Files Table for Technical Documents Updates Page")
 	@Test (priority=9)
     public void TableColumnDateVerfication()
 	{
@@ -85,6 +94,7 @@ public class TechnicalDocumentsUpdatesPageTest extends BaseTest{
 		Assert.assertTrue(B);
 	}
 
+	@Description("Test Case - Verification of File Column in the Files Table for Technical Documents Updates Page")
 	@Test (priority=10)
     public void TableColumnFileVerfication()
 	{
@@ -92,6 +102,7 @@ public class TechnicalDocumentsUpdatesPageTest extends BaseTest{
 		Assert.assertTrue(B);
 	}
 
+	@Description("Test Case - Verification of Size Column in the Files Table for Technical Documents Updates Page")
 	@Test (priority=11)
     public void TableColumnSizeVerfication()
 	{
@@ -99,6 +110,13 @@ public class TechnicalDocumentsUpdatesPageTest extends BaseTest{
 		Assert.assertTrue(B);
 	}
 	
-	
+	@Description("Test Case - Verification of clicking a Technical Document from Technical Documents Updates Page")
+	@Test (priority=12)
+	public void TechnicalDocumentClick() throws InterruptedException
+	{
+		B=TechDocUpdatesPage.TechDocClick();
+		Assert.assertTrue(B);
+		
+	}
 
 }

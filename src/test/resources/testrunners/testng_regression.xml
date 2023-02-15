@@ -31,7 +31,7 @@
 </test>
 
 
-<test name="Home Pagged accessed as Logged in User Test">
+<test name="Home Page accessed as Logged in User Test">
 <classes>
 <class name="ampere.qa.customeconnect.tests.LoggedInUserHomePageTest"/>
 </classes>
@@ -62,4 +62,36 @@
 <class name="ampere.qa.customeconnect.tests.FAQandHelpPageTest"/>
 </classes>
 </test>
+
+<test name="Technical Bulletin Page Test ">
+<classes>
+<class name="ampere.qa.customeconnect.tests.TechnicalBulletinPageTest"/>
+</classes>
+</test>
+
+<test name="Individual Technical Document Page Test ">
+<classes>
+<class name="ampere.qa.customeconnect.tests.IndividualTechDocPageTest"/>
+</classes>
+</test>
+
+<test name="Individual Software Design Files Page Test ">
+<classes>
+<class name="ampere.qa.customeconnect.tests.IndividualSoftwareDesignFilesPageTest"/>
+</classes>
+</test>
+
+<test name="Individual Technical Bulletin Page Test ">
+<classes>
+<class name="ampere.qa.customeconnect.tests.IndividualTechnicalBulletinPageTest"/>
+</classes>
+</test>
+
+<test name="Profile Page Test ">
+<classes>
+<class name="ampere.qa.customeconnect.tests.ProfilePageTest"/>
+</classes>
+</test>
+
 </suite>
+

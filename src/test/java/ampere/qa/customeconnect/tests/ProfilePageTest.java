@@ -21,7 +21,6 @@ public class ProfilePageTest extends BaseTest{
 	String text;
 
 	
-	
 	@Description("User Profile Page Test - Page Title Verification")
 	@Test (priority=1)
     public void PageTitleVerfication()
@@ -55,17 +54,31 @@ public class ProfilePageTest extends BaseTest{
 	
 	}
 	
-	@Description("User Profile Page Test - Form Field Verification")
+	@Description("Test Case - Verification whether Breadcrumb is present on Page")
 	@Test (priority=5)
-  public void FormFieldsVerification() throws InterruptedException
+    public void BreadCrumbVerfication()
 	{
+		B=ProfilePage.BreadCrumbIsPresent();
+		Assert.assertTrue(B);
+	}
+	
+	@Description("User Profile Page Test - Form Field Verification")
+	@Test (priority=6)
+    public void FormFieldsVerification() throws InterruptedException
+	 {
 	   B=ProfilePage.AreProfileFieldsPresent();
 	   Assert.assertTrue(B);
 	
-	}
+	 }
+
+	@Description("User Profile Page Test - Form Update Verification")
+	@Test (priority=7)
+    public void FormUpdateVerification() throws InterruptedException
+	 {
+	   text=ProfilePage.ProfileUpdate();
+	   Assert.assertEquals(text, Constants.PROFILE_UPDATED_MESSAGE);
 	
-	
-	
+	 }
 	
 	
 }

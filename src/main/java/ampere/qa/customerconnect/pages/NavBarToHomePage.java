@@ -32,16 +32,15 @@ public class NavBarToHomePage {
 	}
   
 	// Test Case 1- Verify that the user can navigate to the Customer Connect Home page via Navigation Bar on Solutions Homepage / Ampere website
-	 public String visitSolutionsHomepage()
+	 public void visitSolutionsHomepage()
 	 {
-		 driver.get(Constants.SOLUTIONS_HOMEPAGE_URL);
-		 String title= eleUtil.doGetTitle(Constants.SOLUTIONS_HOMEPAGE_TITLE, Constants.DEFAULT_TIMEOUT);
-		 return title;
+		 driver.get(Constants.AMPERE_HOMEPAGE_URL);
+		 
 	 }
 			
-	 
-		 public String clickSupportHome() throws InterruptedException
+	 	 public String clickSupportHome() throws InterruptedException
 	 {
+		 visitSolutionsHomepage();	 
 		 eleUtil.doMoveToElement(SupportLink);
 		 Thread.sleep(1000);
 		 eleUtil.doActionClick(SupportHomeLink);

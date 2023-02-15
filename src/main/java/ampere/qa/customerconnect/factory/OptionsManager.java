@@ -1,20 +1,31 @@
 package ampere.qa.customerconnect.factory;
 
+import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.safari.SafariOptions;
 
-public class OptionsManager {
+
+public class OptionsManager  {
 
 	private Properties prop;
 	private ChromeOptions co;
 	private FirefoxOptions fo;
 	private EdgeOptions eo;
 	private SafariOptions so;
+	private static Map<String, Object> prefs;
 
+	
+	
+	
 	public OptionsManager(Properties prop)
 	{
 		this.prop=prop;
@@ -22,7 +33,7 @@ public class OptionsManager {
 		
 	}
 	
-	public ChromeOptions getChromeOptions()
+	public ChromeOptions getChromeOptions(File folder)
 	{
 		co= new ChromeOptions();
 		if (Boolean.parseBoolean(prop.getProperty("headless")))
@@ -34,8 +45,17 @@ public class OptionsManager {
 		{
 		co.addArguments("--incongnito");
 		}
-	  return co;
+		
+		//File folder=FolderFactory.CreateFolder();
+		prefs= new HashMap<String,Object>();
+		prefs.put("download.default_directory", folder.getAbsolutePath());
+		
+		co.setExperimentalOption("prefs", prefs);
+		
+		
+		return co;
 	}
+	
 	
 	
 	

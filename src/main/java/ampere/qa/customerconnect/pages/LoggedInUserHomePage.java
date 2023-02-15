@@ -64,7 +64,7 @@ public class LoggedInUserHomePage {
 	private By TDLoginLink = By.xpath("(//span[@class='css-722v25'])[1]");
 	private By FnLnLocator=By.xpath("//span[@class='css-puvmh4']");
 	private By SupportNavBar=By.xpath("(//div[@class='css-rjt1dr'])[3]");
-	private By NavBarTechBulletinLink=By.xpath("(//a[@class='chakra-link css-6k6rnv'])[9]");
+	private By NavBarTechBulletinLink=By.xpath("(//a[@class='chakra-link css-6k6rnv'])[10]");
 	private By NavBarProductLink= By.xpath("(//a[@class='chakra-link css-6k6rnv'])[7]");
 	private By LastElementOfBreadCrumb=By.xpath("(//li[@class='chakra-breadcrumb__list-item css-1av8uke'])[4]");
 	private By AcceptAllCookiesButton=By.xpath("//button[@class='chakra-button css-n9n0wy']");
@@ -288,6 +288,7 @@ public String TechDocViewAllClick()
 
 public TechnicalDocumentUpdatesPage TechDocViewAllClickPageSetUp()
 {
+	eleUtil.windowMaximise();
 	eleUtil.doClick(techDocViewAll);
 	eleUtil.doGetTitle(Constants.TECH_DOC_UPDATE_PAGE_TITLE, Constants.DEFAULT_TIMEOUT);
 	return new TechnicalDocumentUpdatesPage(driver, prop);
@@ -325,9 +326,9 @@ public void CookiesAcceptAllClick()
 }
 
 public SWUpdatesPage SWDesFilesViewAllClickPageSetUp()
-{
+{   eleUtil.windowMaximise();
+    CookiesAcceptAllClick(); 
 	eleUtil.doClick(softDesViewAll);
-	driver.manage().window().maximize();
 	eleUtil.doGetTitle(Constants.SW_DES_FILES_UPDATE_PAGE_TITLE, Constants.DEFAULT_TIMEOUT);
 	return new SWUpdatesPage(driver, prop);
 	

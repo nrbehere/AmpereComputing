@@ -1,6 +1,7 @@
 package ampere.qa.customerconnect.pages;
 
 import java.util.Properties;
+import java.util.Random;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -23,9 +24,11 @@ public class ProfilePage {
 		
 	}
 
+  private int n;	
 
   private By HeroImage=By.xpath("//img[@alt='Hero Image']");
   private By TextOnImage=By.xpath("//p[@class='chakra-text css-bxak8j']");
+  private By BreadCrumb=By.xpath("//div[@class='css-70qvj9']");
   private By FormIsPresent=By.xpath("//div[@class='css-nvx1u7']");
   private By FormFieldUserId=By.xpath("//input[@name='id']");
   private By FormFieldEmail=By.xpath("//input[@name='email']");
@@ -47,6 +50,8 @@ public class ProfilePage {
   private By FormFieldSubTechBul=By.xpath("(//div[@class='css-1blxii0'])[3]");
   private By FormSubmitButton=By.xpath("//button[@type='submit']");
   private By AcceptAllCookiesButton=By.xpath("//button[@class='chakra-button css-n9n0wy']");
+  private By ProfileUpdateMessage=By.xpath("//header[@class='chakra-modal__header css-9fgtzh']");
+  private By CloseButton=By.xpath("//button[@class='chakra-button css-ernlrs']");
   private Boolean b;
   
   
@@ -120,6 +125,27 @@ public class ProfilePage {
 		else
 			return false;
 	}
-  
 
+	public Boolean BreadCrumbIsPresent() {
+	
+		return eleUtil.getElement(BreadCrumb).isDisplayed();
+	}
+  
+	
+	public String ProfileUpdate() throws InterruptedException
+	{
+		n = 100000000 + new Random().nextInt(900000000);
+		eleUtil.windowMaximise();
+		eleUtil.doMoveToElement(FormFieldPhone);
+		eleUtil.getElement(FormFieldPhone).clear();
+		Thread.sleep(2000);
+		eleUtil.getElement(FormFieldPhone).sendKeys(String.valueOf(n));
+		Thread.sleep(2000);
+		eleUtil.getElement(FormSubmitButton).click();
+		Thread.sleep(5000);
+		String updateMsg=eleUtil.getElement(ProfileUpdateMessage).getText();
+		eleUtil.getElement(CloseButton);
+		return updateMsg;
+	}
+	
 }

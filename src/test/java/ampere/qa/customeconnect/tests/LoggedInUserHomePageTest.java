@@ -27,7 +27,7 @@ public class LoggedInUserHomePageTest extends BaseTest {
 	}
 	
 	
-	@Description("Logged In User Home Page Test - Welcome Text Verification")
+	@Description("Test Case- Welcome Text Verification")
 	@Test (priority=1)
 	public void WelcomeTextVerification()
 	{
@@ -42,7 +42,7 @@ public class LoggedInUserHomePageTest extends BaseTest {
 	}
 	
 	
-	@Description("Logged In User Home Page Test- User First Name & Last Name is reflected post successful login")
+	@Description("Test Case - User First Name & Last Name are reflected post successful login")
     @Test(priority=2)
 	public void UserNameVerification()
 	{
@@ -51,7 +51,7 @@ public class LoggedInUserHomePageTest extends BaseTest {
 		
 	}
 	
-	@Description("Logged In User Home Page Test - Access Message Verification")
+	@Description("Test Case - Access Message Verification")
 	@Test (priority=3)
 	public void AccessMessageVerification()
 	{
@@ -61,7 +61,7 @@ public class LoggedInUserHomePageTest extends BaseTest {
 	
 	
 
-	@Description("Logged In User Home Page Test - Product Card Verification")	
+	@Description("Test Case - Product Card Verification")	
 	@Test (priority=4)
 	public void ProductCardVerification()
 	{
@@ -69,7 +69,7 @@ public class LoggedInUserHomePageTest extends BaseTest {
 		Assert.assertTrue(B);
 	}
 	
-	@Description("Logged In User Home Page Test - Search Bar Verification")	
+	@Description("Test Case - Search Bar Verification")	
 	@Test (priority=5)
 	public void SearchBarPresent()
 	{
@@ -77,7 +77,7 @@ public class LoggedInUserHomePageTest extends BaseTest {
 		Assert.assertTrue(B);
 	}
 	
-	@Description("Logged In User Home Page Test - Search Functionality Verification")	
+	@Description("Test Case - Search Functionality Verification")	
 	@Test (priority=6)
 	public void SearchFunctionalityVerification()
 	{
@@ -86,7 +86,7 @@ public class LoggedInUserHomePageTest extends BaseTest {
 	
 	
 	
-	@Description("Logged In User Home Page Test - Product Family Verification")	
+	@Description("Test Case - Product Family Verification")	
 	@Test (priority=8)
 	public void ProductFamilyVerification()
 	{
@@ -94,7 +94,7 @@ public class LoggedInUserHomePageTest extends BaseTest {
 		Assert.assertTrue(B);
 	}
 	
-	@Description("Logged In User Home Page Test - Product Category Verification")	
+	@Description("Test Case - Product Category Verification")	
 	@Test (priority=9)
 	public void ProductCategoryVerification()
 	{
@@ -103,7 +103,7 @@ public class LoggedInUserHomePageTest extends BaseTest {
 	}
 	
 	
-	@Description("Logged In User Home Page Test - Product Verification")	
+	@Description("Test Case - Product Verification")	
 	@Test (priority=10)
 	public void ProductVerification() throws InterruptedException
 	{
@@ -112,7 +112,7 @@ public class LoggedInUserHomePageTest extends BaseTest {
 		Assert.assertTrue(B);
 	}
 	
-	@Description("Logged In User Home Page Test - Product Click Verification")	
+	@Description("Test Case - Product Click Verification")	
 	@Test (priority=11)
 	public void ProductClickVerification() throws InterruptedException
 	{
@@ -122,7 +122,7 @@ public class LoggedInUserHomePageTest extends BaseTest {
 	
 	}
 	
-	@Description("Logged In User Home Page Test - Technical Document and Software Updates Card Verification")
+	@Description("Test Case - Technical Document and Software Updates Card Verification")
 	@Test (priority=12)
 	public void TechnicalDocumentAndSoftwareUpdatesCardVerification() throws InterruptedException
 	{
@@ -135,7 +135,7 @@ public class LoggedInUserHomePageTest extends BaseTest {
 	}
 	
 	
-	@Description("Logged In User Home Page Test - Technical Bulletin Card Verification")
+	@Description("Test Case - Technical Bulletin Card Verification")
 	@Test (priority=13)
 	public void TechnicalBulletinCardVerification()
 	{
@@ -145,7 +145,7 @@ public class LoggedInUserHomePageTest extends BaseTest {
 	  Assert.assertEquals(ActTitle, Constants.TECH_BULLETIN_UPDATE_PAGE_TITLE);
 	}
 
-	@Description("Logged In User Home Page Test - FAQ & Help Card Verification")
+	@Description("Test Case - FAQ & Help Card Verification")
 	@Test (priority=14)
 	public void HelpCardVerification() throws InterruptedException
 	{
@@ -158,7 +158,7 @@ public class LoggedInUserHomePageTest extends BaseTest {
 		
 	}
 
-	@Description("Logged In User Home Page Test - Widget Verification")
+	@Description("Test Case - Widget Verification")
 	@Test (priority=15)
 	public void ProfileLogoutWidget() throws InterruptedException
 	{
@@ -168,7 +168,7 @@ public class LoggedInUserHomePageTest extends BaseTest {
 		
 	}
 
-	
+	@Description("Test Case - Profile Link Verification")
 	@Test (priority=16)
 	public void ProfileLinkVerification() throws InterruptedException
 	{
@@ -176,6 +176,7 @@ public class LoggedInUserHomePageTest extends BaseTest {
 	    Assert.assertEquals(ActTitle, Constants.PROFILE_PAGE_TITLE);
 	}
 	
+	@Description("Test Case - Logout Link Verification")
 	@Test (priority=17)
 	public void LogoutLinkVerification() throws InterruptedException
 	{

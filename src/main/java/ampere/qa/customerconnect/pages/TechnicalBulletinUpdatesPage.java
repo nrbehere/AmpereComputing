@@ -1,9 +1,12 @@
 package ampere.qa.customerconnect.pages;
 
+import java.util.List;
 import java.util.Properties;
+import java.util.Random;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 import ampere.qa.customerconnect.utils.Constants;
 import ampere.qa.customerconnect.utils.ElementUtil;
@@ -30,13 +33,14 @@ public class TechnicalBulletinUpdatesPage {
 	private By TableColumnFile=By.xpath("//tr[@class='css-9xnlic']//th[@class='css-19olkif'][3]");
 	private By TableColumnSize=By.xpath("//tr[@class='css-9xnlic']//th[@class='css-19olkif'][4]");
 	private By FirstFile=By.xpath("//td[@class='css-9pmepv'][1]");
+	private By ListOfTechBulletins=By.xpath("//td[@class='css-9pmepv']//a");
 	private By FirstFileLink=By.xpath("//td[@class='css-9pmepv'][1]//a[1]");
 	private By LastElementofBreadCrum=By.xpath("//li[3]//a");
+	List<WebElement> ele;
 	
 	public boolean HeroImageIsPresent()
 	{
 		return eleUtil.getElement(HeroImage).isDisplayed();
-		
 	}
 
 	public String getTextOnImage()
@@ -114,5 +118,31 @@ public class TechnicalBulletinUpdatesPage {
 		  return b;
        }
 
+	public IndividualTechnicalBulletinPage IndividualTechBulletinPageSetup() throws InterruptedException {
+		
+		 eleUtil.windowMaximise();
+		 ele=eleUtil.getElements(ListOfTechBulletins);
+		 int i=ele.size();
+		 
+		 Random r=new Random();
+		 
+		 int randomFile=r.nextInt(i);
+		 
+		 System.out.println("Random File Number-" +randomFile);
+		 
+		 String ExpectedFileName= ele.get(randomFile).getText();
+		 System.out.println("Random Technical Document clicked: "+ ExpectedFileName);
+		 
+		 randomFile=randomFile+1;
+		 By TechDocSelected= By.xpath("(//td[@class='css-9pmepv']//a)["+randomFile+"]");
+		 eleUtil.doMoveToElement(TechDocSelected);
+		 Thread.sleep(2000);
+		 eleUtil.getElement(TechDocSelected).click();
+		 Thread.sleep(2000);
+		 eleUtil.doGetTitle(Constants.TECH_BULLETIN_UPDATE_PAGE_TITLE, Constants.DEFAULT_TIMEOUT );
+		
+		return  new IndividualTechnicalBulletinPage(driver,prop);
+	}
+	
 	
 }

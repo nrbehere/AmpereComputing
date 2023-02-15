@@ -6,6 +6,7 @@ import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 
 import ampere.qa.customerconnect.utils.Constants;
+import io.qameta.allure.Description;
 
 public class SWUpdatesPageTest extends BaseTest{
 	
@@ -21,6 +22,7 @@ public class SWUpdatesPageTest extends BaseTest{
 	Boolean B;
 	String text;
 	
+	@Description("Test Case - Verification of Page title for Software and Design Files Updates Page")
 	@Test (priority=1)
       public void PageTitleVerfication()
 	{
@@ -28,6 +30,7 @@ public class SWUpdatesPageTest extends BaseTest{
 		Assert.assertEquals(ActTitle, Constants.SW_DES_FILES_UPDATE_PAGE_TITLE);
 	}
 
+	@Description("Test Case - Verification of Hero Image for Software and Design Files Updates Page")
 	@Test (priority=2)
     public void HeroImageVerfication()
 	{
@@ -35,6 +38,7 @@ public class SWUpdatesPageTest extends BaseTest{
 		Assert.assertTrue(B);
 	}
 
+	@Description("Test Case - Verification of Text on Hero Image for Software and Design Files Updates Page")
 	@Test (priority=3)
     public void TextOnImageVerfication()
 	{
@@ -42,6 +46,8 @@ public class SWUpdatesPageTest extends BaseTest{
 		Assert.assertEquals(text, Constants.SW_UPDATE_PAGE_TEXT_ON_HEROIMAGE);
 	}
 	
+	
+	@Description("Test Case - Verification of Watermark Note for Software and Design Files Updates Page")
 	@Test (priority=4)
     public void WaterMarkNoteVerfication()
 	{
@@ -49,6 +55,7 @@ public class SWUpdatesPageTest extends BaseTest{
 		Assert.assertTrue(B);
 	}
 
+	@Description("Test Case - Verification of Password protection Note for Software and Design Files Updates Page")
 	@Test (priority=5)
     public void PasswordProtectionNoteVerfication()
 	{
@@ -56,6 +63,7 @@ public class SWUpdatesPageTest extends BaseTest{
 		Assert.assertTrue(B);
 	}
 	
+	@Description("Test Case - Verification of Title Column in the Files Table for Software and Design Files Updates Page")
 	@Test (priority=6)
     public void TableColumnTitleVerfication()
 	{
@@ -63,6 +71,7 @@ public class SWUpdatesPageTest extends BaseTest{
 		Assert.assertTrue(B);
 	}	
 	
+	@Description("Test Case - Verification of Revision Column in the Files Table for Software and Design Files Updates Page")
 	@Test (priority=7)
     public void TableColumnRevVerfication()
 	{
@@ -70,6 +79,7 @@ public class SWUpdatesPageTest extends BaseTest{
 		Assert.assertTrue(B);
 	}	
 	
+	@Description("Test Case - Verification of Date Column in the Files Table for Software and Design Files Updates Page")
 	@Test (priority=8)
     public void TableColumnDateVerfication()
 	{
@@ -78,6 +88,7 @@ public class SWUpdatesPageTest extends BaseTest{
 	}		
 	
 	
+	@Description("Test Case - Verification that No water marked or password protected file for Software and Design Files Updates Page")
 	@Test (priority=9)
 	public void NoFileWithWorPPVerification() throws InterruptedException
 	{
@@ -85,6 +96,7 @@ public class SWUpdatesPageTest extends BaseTest{
 		Assert.assertTrue(B);
 	}
 	
+	@Description("Test Case - Verification of  first file from Files table for Software and Design Files Updates Page")
 	@Test (priority=10)
 	public void FirstFileClickVerification() throws InterruptedException
 	{

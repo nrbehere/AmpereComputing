@@ -4,6 +4,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Properties;
+import java.util.Random;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -34,7 +35,8 @@ public class SWUpdatesPage {
 	}
 	
 	
-	private By heroImage= By.xpath("//img[@alt='Hero Image']");
+	private By AcceptAllCookiesButton=By.xpath("//button[@class='chakra-button css-n9n0wy']");
+	private By heroImage= By.xpath("(//img)[4]");
 	private By TextOnImage= By.xpath("//p[@class='chakra-text css-bxak8j']");
 	private By WMNote=By.xpath("//span[@class='css-11vop16'][1]");
 	private By PPNote=By.xpath("(//span[@class='css-11vop16'])[2]");
@@ -45,7 +47,8 @@ public class SWUpdatesPage {
 	private By FileListLinks=By.xpath("//tr[@class='css-6minc1']//td[@class='css-9pmepv']");
 	private By FirstFile=By.xpath("//tr[@class='css-6minc1']//td[@class='css-9pmepv'][1]");
 	private By FirstFileLink=By.xpath("//tr[@class='css-6minc1']//td[@class='css-9pmepv'][1]//a[1]");
-	private By LastElementofBreadCrum=By.xpath("//li[@class='chakra-breadcrumb__list-item css-1av8uke'][3]");
+	private By LastElementofBreadCrum=By.xpath("//li[@class='chakra-breadcrumb__list-item css-1av8uke'][4]");
+	private List<WebElement> ele;
 	
 	 
 	public boolean HeroImageIsPresent()
@@ -143,4 +146,43 @@ public class SWUpdatesPage {
 		  return b;
        }
 
+    
+    public void CookiesAcceptAllClick()
+    {
+       b=eleUtil.getElement(AcceptAllCookiesButton).isDisplayed();	
+       
+       if (b) {
+    	   eleUtil.getElement(AcceptAllCookiesButton).click();
+    	
+       }
+       
+    }
+    
+    
+    public IndividualSoftwareDesignFilesPage  IndividualSoftwareDesignFilesPageSetup() throws InterruptedException
+    {
+    	eleUtil.windowMaximise();
+    	ele=eleUtil.getElements(FileListLinks);
+    	int i=ele.size();
+		 
+		 Random r=new Random();
+		 
+		 int randomFile=r.nextInt(i);
+		 
+		 System.out.println("Random File Number-" +randomFile);
+		 
+		 String ExpectedFileName= ele.get(randomFile).getText();
+		 System.out.println("Random Software Design clicked: "+ ExpectedFileName);
+		 
+		 randomFile=randomFile+1;
+		 By SWDesFileSelected= By.xpath("((//tr[@class='css-6minc1']//td[@class='css-9pmepv'])//a)["+randomFile+"]");
+		 eleUtil.doMoveToElement(SWDesFileSelected);
+		 Thread.sleep(2000);
+		 eleUtil.getElement(SWDesFileSelected).click();
+		 Thread.sleep(2000);
+		 eleUtil.doGetTitle(Constants.SW_DES_FILES_UPDATE_PAGE_TITLE, Constants.DEFAULT_TIMEOUT );
+    	 return new IndividualSoftwareDesignFilesPage(driver,prop); 
+    }
+        
+    
 }

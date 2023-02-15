@@ -5,6 +5,7 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
 import ampere.qa.customerconnect.utils.Constants;
+import io.qameta.allure.Description;
 
 public class FAQandHelpPageTest extends BaseTest {
 
@@ -21,6 +22,7 @@ public class FAQandHelpPageTest extends BaseTest {
 	Boolean B;
 	String text;
 	
+	@Description("Test Case - Verification of Page title for FAQ & Help Page")
 	@Test (priority=1)
       public void PageTitleVerfication()
 	{
@@ -28,13 +30,15 @@ public class FAQandHelpPageTest extends BaseTest {
 		Assert.assertEquals(ActTitle, Constants.HELP_PAGE_TITLE);
 	}
 
+	@Description("Test Case - Verification of Hero Image for FAQ & Help Page")
 	@Test (priority=2)
     public void HeroImageVerfication()
 	{
 		B=FAQandHelpPage.HeroImageIsPresent();
 		Assert.assertTrue(B);
 	}
-
+	
+	@Description("Test Case - Verification of Text on Hero Image for FAQ & Help Page")
 	@Test (priority=3)
     public void TextOnImageVerfication()
 	{
@@ -42,7 +46,7 @@ public class FAQandHelpPageTest extends BaseTest {
 		Assert.assertEquals(text, Constants.HELP_PAGE_TEXT_ON_HERO_IMAGE);
 	}
 
-	
+	@Description("Test Case - Verification of Text below Hero Image for FAQ & Help Page")
 	@Test(priority=4)
 	public void TextBelowHeroImage()
 	{
@@ -50,7 +54,7 @@ public class FAQandHelpPageTest extends BaseTest {
 		Assert.assertTrue(B);
 	}
 	
-	
+	@Description("Test Case - Verification of Help Form on FAQ & Help Page")
 	@Test(priority=5)
 	public void HelpFormIsPresent()
 	{
@@ -58,6 +62,7 @@ public class FAQandHelpPageTest extends BaseTest {
 		Assert.assertTrue(B);
 	}
 	
+	@Description("Test Case - Verification of FAQ section on FAQ & Help Page")
 	@Test(priority=6)
 	public void FAQSectionIsPresent()
 	{
@@ -67,7 +72,7 @@ public class FAQandHelpPageTest extends BaseTest {
 		
 	}
 	
-	
+	@Description("Test Case - Verification of FAQ section expand and collapse on FAQ & Help Page")
 	@Test(priority=7)
 	public void FAQAccordianExpandCollapse() throws InterruptedException
 	{
@@ -76,6 +81,7 @@ public class FAQandHelpPageTest extends BaseTest {
 	}
 
 
+	@Description("Test Case - Verification of Help form submission on FAQ & Help Page")
     @Test(priority=8)
     public void HelpFormSubmission()
     {
