@@ -24,7 +24,7 @@ public class TechnicalBulletinUpdatesPage {
 	}
 
 	
-	private By HeroImage=By.xpath("//img[@alt='Hero Image']");
+	private By HeroImage=By.xpath("(//img)[4]");
 	private By TextOnImage=By.xpath("//p[@class='chakra-text css-bxak8j']");
 	private By WMnote=By.xpath("//div[@class='css-a8d674']");
 	private By TableColumnTitle=By.xpath("//tr[@class='css-9xnlic']//th[@class='css-16921gd']");
@@ -35,7 +35,7 @@ public class TechnicalBulletinUpdatesPage {
 	private By FirstFile=By.xpath("//td[@class='css-9pmepv'][1]");
 	private By ListOfTechBulletins=By.xpath("//td[@class='css-9pmepv']//a");
 	private By FirstFileLink=By.xpath("//td[@class='css-9pmepv'][1]//a[1]");
-	private By LastElementofBreadCrum=By.xpath("//li[3]//a");
+	private By LastElementofBreadCrum=By.xpath("//li[4]//a");
 	List<WebElement> ele;
 	
 	public boolean HeroImageIsPresent()
