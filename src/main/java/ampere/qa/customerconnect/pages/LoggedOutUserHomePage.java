@@ -88,7 +88,6 @@ public class LoggedOutUserHomePage {
 		title= eleUtil.doGetTitle(Constants.REGISTRATION_PAGE_TITLE, Constants.DEFAULT_TIMEOUT);
 		driver.navigate().back();
 		eleUtil.waitForTitleContains(Constants.HOMEPAGE_TITLE,Constants.DEFAULT_TIMEOUT);
-		
 		return title;
 		
 	}

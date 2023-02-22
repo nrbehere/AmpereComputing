@@ -37,6 +37,9 @@ public class Constants {
 	public static final String PROFILE_UPDATED_MESSAGE = "Your profile has been updated successfully";
 	public static final String CHROME_VERSION = "110.0.5481.100";
 	public static final String INDI_TECH_BULLETIN_TEXT_ON_HERO_IMAGE = "Technical Bulletin Updates";
+	public static final String PRODUCTS_PAGE_TITLE = "Products";
+	public static final String SEARCH_PAGE_TITLE = "Search Results";
+	public static final String PRODUCTS_PAGE_TEXT_ON_HERO_IMAGE = "Products";
 	
 	
 		

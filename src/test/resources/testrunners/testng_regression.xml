@@ -93,5 +93,17 @@
 </classes>
 </test>
 
+<test name="Product Page Test ">
+<classes>
+<class name="ampere.qa.customeconnect.tests.ProductsPageTest"/>
+</classes>
+</test>
+
+<test name="Individual Product Page Test ">
+<classes>
+<class name="ampere.qa.customeconnect.tests.IndividualProductPageTest"/>
+</classes>
+</test>
+
 </suite>
 

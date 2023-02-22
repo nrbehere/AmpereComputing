@@ -21,6 +21,7 @@ import ampere.qa.customerconnect.pages.LoggedOutUserHomePage;
 import ampere.qa.customerconnect.pages.LoggedOutUserNavigation;
 import ampere.qa.customerconnect.pages.LoggedOutUserProductPage;
 import ampere.qa.customerconnect.pages.NavBarToHomePage;
+import ampere.qa.customerconnect.pages.ProductsPage;
 import ampere.qa.customerconnect.pages.ProfilePage;
 import ampere.qa.customerconnect.pages.SWUpdatesPage;
 import ampere.qa.customerconnect.pages.TechnicalBulletinPage;
@@ -48,6 +49,8 @@ public class BaseTest {
 	IndividualTechDocPage IndividaulTechDocPage;
 	IndividualSoftwareDesignFilesPage IndividualSoftwareDesignFilesPage;
 	IndividualTechnicalBulletinPage IndividualTechnicalBulletinPage;
+	ProductsPage ProdPage;
+	
 	
 	public static File folder;
 	

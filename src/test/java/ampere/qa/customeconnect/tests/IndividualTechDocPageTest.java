@@ -41,7 +41,7 @@ public class IndividualTechDocPageTest extends BaseTest {
 		Assert.assertTrue(B);
 	}
 	
-	@Description("Test Case - Verification whether Text On Hero Image is present on Page")
+	@Description("Test Case - Verification of the actual Text On Hero Image is present on Page")
 	@Test (priority=3)
     public void TextOnImageVerification()
 	{

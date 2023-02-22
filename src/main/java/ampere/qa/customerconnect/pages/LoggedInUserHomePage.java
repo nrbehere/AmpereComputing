@@ -181,7 +181,6 @@ public class LoggedInUserHomePage {
 
  public boolean ProductsArePresent() throws InterruptedException
  {
-	eleUtil.windowMaximise();
 	Thread.sleep(5000);
 	ele=eleUtil.getElements(Products); 
 	i=ele.size();
