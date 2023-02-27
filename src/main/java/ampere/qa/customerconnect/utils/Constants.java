@@ -40,6 +40,7 @@ public class Constants {
 	public static final String PRODUCTS_PAGE_TITLE = "Products";
 	public static final String SEARCH_PAGE_TITLE = "Search Results";
 	public static final String PRODUCTS_PAGE_TEXT_ON_HERO_IMAGE = "Products";
+	public static final String CONTACT_SALES = "Contact - Sales Inquiries";
 	
 	
 		

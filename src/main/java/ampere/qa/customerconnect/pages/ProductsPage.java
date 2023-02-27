@@ -3,6 +3,7 @@ package ampere.qa.customerconnect.pages;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Properties;
+import java.util.Random;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -125,10 +126,27 @@ public class ProductsPage {
 	   }
 	}		
 
-	public IndividualProductPage IndividualProductPageSetup() {
-		
-		
-		return new IndividualProductPage(driver,prop);
+	public IndividualProductPage IndividualProductPageSetup() throws InterruptedException {
+		 eleUtil.windowMaximise();
+		 ExpandProductCategory();
+		 ele=eleUtil.getElements(Products);
+		 int i=ele.size();
+		 Random r=new Random();
+		 int randomFile=r.nextInt(i);
+		 
+		 System.out.println("Random File Number-" +randomFile);
+		 String ExpectedFileName= ele.get(randomFile).getText();
+		 System.out.println("Random Product clicked: "+ ExpectedFileName);
+		 
+		 randomFile=randomFile+1;
+		 By ProductSelected= By.xpath("(//div[@class='css-1lbcusb']//a)["+randomFile+"]");
+		 eleUtil.doMoveToElement(ProductSelected);
+		 Thread.sleep(2000);
+		 eleUtil.getElement(ProductSelected).click();
+		 Thread.sleep(2000);
+		 eleUtil.doGetTitle(ExpectedFileName, Constants.DEFAULT_TIMEOUT );
+				
+		return new IndividualProductPage(driver,prop,ExpectedFileName);
       
 	}
 
@@ -199,4 +217,6 @@ public class ProductsPage {
 		return title;
 
 	}
+
+	
 }

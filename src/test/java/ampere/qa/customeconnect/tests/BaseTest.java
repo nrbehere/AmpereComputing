@@ -12,6 +12,7 @@ import org.testng.annotations.BeforeTest;
 import ampere.qa.customerconnect.factory.DriverFactory;
 import ampere.qa.customerconnect.factory.FolderFactory;
 import ampere.qa.customerconnect.pages.FAQandHelpPage;
+import ampere.qa.customerconnect.pages.IndividualProductPage;
 import ampere.qa.customerconnect.pages.IndividualSoftwareDesignFilesPage;
 import ampere.qa.customerconnect.pages.IndividualTechDocPage;
 import ampere.qa.customerconnect.pages.IndividualTechnicalBulletinPage;
@@ -50,6 +51,7 @@ public class BaseTest {
 	IndividualSoftwareDesignFilesPage IndividualSoftwareDesignFilesPage;
 	IndividualTechnicalBulletinPage IndividualTechnicalBulletinPage;
 	ProductsPage ProdPage;
+	IndividualProductPage IndividualProductPage;
 	
 	
 	public static File folder;
